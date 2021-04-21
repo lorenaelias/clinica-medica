@@ -1,7 +1,7 @@
 :root {
     --background: #f7f7f7;
 
-    --gray: #F2F2F2;
+    --gray: #ececec;
     --white: #ffffff;
     --black: #1d1d1d;
     --light-dark: #383838;
@@ -70,7 +70,7 @@ button {
 }
 
 .header__navigation__list__item {
-    transition: all .2s;
+    transition: all .3s;
 }
 
 .header__navigation__list__item:not(:first-child) {
