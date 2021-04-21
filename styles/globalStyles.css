@@ -28,6 +28,33 @@ button {
     cursor: pointer;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+::selection {
+    background-color: var(--blue);
+    color: var(--background);
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #fff;
+}
+
 .header {
     width: 100%;
     height: 8rem;
@@ -98,4 +125,28 @@ button {
 
 .header__navigation__list__item--highlight a {
     color: inherit;
+}
+
+.footer {
+    width: 100%;
+    background: var(--blue);
+}
+
+.footer div img {
+    margin: 0 auto;
+    display: block;
+}
+
+.footer address p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--white);
+    padding: 2rem 0 4rem 0;
+}
+
+.footer p {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--white);
+    padding: 4rem 0 2rem 0;
 }
