@@ -47,6 +47,29 @@
     text-align: center;
 }
 
+.titleEspecial {
+    margin-left: .7rem;
+    position: relative;
+
+}
+
+.titleEspecial::before {
+    content: '';
+    width: 110%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(to bottom right, var(--blue), var(--light-blue));
+
+    position: absolute;
+    right: -.7rem;
+    top: 0;
+
+    z-index: -1;
+    transform: skewX(
+        -15deg
+        );
+}
+
 .d1 {
     transform: rotate(-3deg);
 }
