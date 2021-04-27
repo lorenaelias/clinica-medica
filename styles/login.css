@@ -1,0 +1,88 @@
+.loginBackground {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(to bottom right, var(--blue), var(--light-blue));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    width: 35vw;
+    height: 55vh;
+
+    background: var(--background);
+    padding: 5rem;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+.loginContainer__Image {
+    width: 25rem;
+
+    position: absolute;
+    top: -15.5rem;
+}
+
+.loginContainer__Title {
+    margin-bottom: 3rem;
+}
+
+.loginContainer__Form {
+
+}
+
+.loginContainer__Form__field {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2rem;
+}
+
+.loginContainer__Form__field label {
+    font-size: 1.3rem;
+}
+
+.loginContainer__Form__field input {
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    border-bottom: 1px solid var(--black);
+    font-family: 'Poppins', sans-serif;
+
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-bottom: 1.2px;
+}
+
+.loginContainer__Form__Button {
+    width: 100%;
+    padding: 1rem 0;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 2px;
+    color: var(--white);
+
+    border: none;
+    background: var(--light-blue);
+
+    transition: filter .2s;
+}
+
+.loginContainer__Form__Button:hover {
+    filter: brightness(.95);
+} 
+
+.greetings {
+    margin-top: 1rem;
+    color: var(--white);
+}
