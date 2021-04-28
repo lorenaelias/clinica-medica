@@ -1,0 +1,84 @@
+.addressContent {
+    padding: 2rem 10%;
+}
+
+.addressContent__description {
+    margin-bottom: 8rem;
+}
+
+.addressContent__description__title {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    text-align: center;
+    color: var(--black);
+}
+
+.addressContent__description__text {
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--black);
+
+    padding: 2rem 8rem;
+}
+
+.addressContent__formContainer {
+    margin-bottom: 5rem;
+}
+
+.addressContent__formContainer h2 {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+
+    margin-bottom: 4rem;
+}
+
+.addressContent__form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.addressContent__form div {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2rem;
+}
+
+.addressContent__form div label {
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+
+.addressContent__form div input {
+    font-size: 1.6rem;
+    font-family:  'Poppins', sans-serif;
+
+    border: none;
+    background: transparent;
+    padding-left: .3rem;
+    outline: none;
+    opacity: .7;
+    border-bottom: 1px solid var(--black);
+}
+
+
+.addressContent__form button {
+    font-family:  'Poppins', sans-serif;
+    border: none;
+
+    margin-top: 2rem;
+    padding: 1.5rem 3rem;
+    color: var(--white);
+    background: var(--blue);
+
+    transition: filter .2s;
+}
+
+.addressContent__form button:hover {
+    filter: brightness(.9);
+}
+
+.addressContent__form div input:valid {
+    opacity: 1;
+}
