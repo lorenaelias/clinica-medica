@@ -1,0 +1,96 @@
+.appointmentContent {
+    padding: 2rem 10%;
+}
+
+.appointmentContent__description {
+    margin-bottom: 8rem;
+}
+
+.appointmentContent__description__title {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    text-align: center;
+    color: var(--black);
+}
+
+.appointmentContent__description__text {
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--black);
+
+    padding: 2rem 8rem;
+}
+
+.appointmentContent__formContainer {
+    margin-bottom: 5rem;
+}
+
+.appointmentContent__formContainer h2 {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+
+    margin-bottom: 4rem;
+}
+
+.appointmentContent__form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.appointmentContent__form div {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2rem;
+}
+
+.appointmentContent__form div label {
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+
+.appointmentContent__form div input {
+    font-size: 1.6rem;
+    font-family:  'Poppins', sans-serif;
+
+    border: none;
+    background: transparent;
+    padding-left: .3rem;
+    outline: none;
+    opacity: .7;
+    border-bottom: 1px solid var(--black);
+}
+
+.appointmentContent__form div select {
+    width: 20%;
+    font-family:  'Poppins', sans-serif;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    background: transparent;
+    outline: none;
+}
+
+#appointmentDate {
+    width: 25%;
+}
+
+.appointmentContent__form button {
+    font-family:  'Poppins', sans-serif;
+    border: none;
+
+    margin-top: 2rem;
+    padding: 1.5rem 3rem;
+    color: var(--white);
+    background: var(--blue);
+
+    transition: filter .2s;
+}
+
+.appointmentContent__form button:hover {
+    filter: brightness(.9);
+}
+
+.appointmentContent__form div input:valid {
+    opacity: 1;
+}

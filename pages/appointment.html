@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="../public/icons/Logo.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../styles/appointment.css" />
+    <title>DevHealth | Agendar Consulta</title>
+  </head>
+  <body>
+        <header class="header">
+            <div class="header__logo">
+            <img src="../public/icons/Logo.png" alt="Logo" />
+            <p>DevHealth</p>
+            </div>
+            <nav class="header__navigation">
+            <ul class="header__navigation__list">
+                <li class="header__navigation__list__item">
+                <a href="#">Agendamentos</a>
+                </li>
+                <li class="header__navigation__list__item">
+                <a href="#">Galeria</a>
+                </li>
+                <li class="header__navigation__list__item">
+                <a href="#">Cadastro</a>
+                </li>
+                <li
+                class="header__navigation__list__item header__navigation__list__item--highlight"
+                >
+                <a href="#">Login</a>
+                </li>
+            </ul>
+            </nav>
+        </header>
+
+        <main class="appointmentContent">
+            <section class="appointmentContent__description">
+                <h1 class="appointmentContent__description__title">Agendamento de consulta</h1>
+                <p class="appointmentContent__description__text">
+                    Contrary to popular belief, Lorem Ipsum is not 
+                    simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+                    making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
+                    College in Virginia, looked up one of the more obscure Latin words, consectetur, from a 
+                    Lorem Ipsum passage, and going through the cites of the word in classical literature, 
+                    discovered the undoubtable source.
+                </p>
+            </section>
+            <section class="appointmentContent__formContainer">
+                <h2>Para cadastrar um novo endereço preencha o campo abaixo</h2>
+                <form action="" class="appointmentContent__form">
+                  <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome">
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                  </div>
+                  <div>
+                    <label for="sexo">Sexo</label>
+                    <select name="sexo" id="sexo">
+                        <option value="Masc">Masculino</option>
+                        <option value="Fem">Feminino</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="medicSpecialuty">Especialidade médica desejada</label>
+                    <input type="text" name="medicSpecialuty" id="medicSpecialuty">
+                  </div>
+                  <div>
+                    <label for="medicName">Nome do médico especialista</label>
+                    <input type="text" name="medicName" id="medicName">
+                  </div>
+                  <div>
+                    <label for="appointmentDate">Data da cpmsulta</label>
+                    <input type="date" name="appointmentDate" id="appointmentDate">
+                  </div>
+                  <div>
+                    <label for="appointmentTime">Horário disponível da consulta</label>
+                    <select t name="appointmentTime" id="appointmentTime">
+                        <option value="7-8">07h - 08h</option>
+                        <option value="8-9">08h - 09h</option>
+                        <option value="9-10">09h - 10h</option>
+                        <option value="10-11">10h - 11h</option>
+                        <option value="11-12">11h - 12h</option>
+                    </select>
+                  </div>
+                  <button type="submit">Agendar</button>
+                </form>
+            </section>
+          
+        </main>
+
+
+
+        <footer class="footer">
+            <hr />
+            <address>
+              <p>
+                Avenida Floriano Peixoto, 1458, Maria Rezende, Uberlândia - Minas
+                Gerais
+              </p>
+            </address>
+            <div>
+              <img src="../public/icons/LogoWhite.png" alt="Logo" />
+            </div>
+      
+            <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
+          </footer>
+  </body>
+</html>
