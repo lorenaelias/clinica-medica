@@ -3,47 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="../public/icons/Logo.png" type="image/png">
+    <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../styles/address.css" />
-    <title>DevHealth | Cadastrar Endereço</title>
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/gallery.css" />
+    <title>DevHealth | Galeria</title>
   </head>
   <body>
         <header class="header">
             <div class="header__logo">
-            <img src="../public/icons/Logo.png" alt="Logo" />
+            <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" /></a>
             <p>DevHealth</p>
             </div>
             <nav class="header__navigation">
             <ul class="header__navigation__list">
                 <li class="header__navigation__list__item">
-                <a href="#">Agendamentos</a>
+                <a href="../appointment">Agendamentos</a>
                 </li>
                 <li class="header__navigation__list__item">
-                <a href="#">Galeria</a>
+                <a href="../gallery">Galeria</a>
                 </li>
                 <li class="header__navigation__list__item">
-                <a href="#">Cadastro</a>
+                <a href="../register">Cadastro</a>
                 </li>
                 <li
                 class="header__navigation__list__item header__navigation__list__item--highlight"
                 >
-                <a href="#">Login</a>
+                <a href="../login">Login</a>
                 </li>
             </ul>
             </nav>
         </header>
 
-        <main class="addressContent">
-            <section class="addressContent__description">
-                <h1 class="addressContent__description__title">Cadastrar Novo Endereço</h1>
-                <p class="addressContent__description__text">
+        <main class="galleryContent">
+            <section class="galleryContent__description">
+                <h1 class="galleryContent__description__title">Galeria</h1>
+                <p class="galleryContent__description__text">
                     Contrary to popular belief, Lorem Ipsum is not 
                     simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
                     making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
@@ -52,29 +52,33 @@
                     discovered the undoubtable source.
                 </p>
             </section>
-            <section class="addressContent__formContainer">
-                <h2>Para cadastrar um novo endereço preencha o campo abaixo</h2>
-                <form action="" class="addressContent__form">
-                  <div>
-                    <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="cep">
-                  </div>
-                  <div>
-                    <label for="logradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="logradouro">
-                  </div>
-                  <div>
-                    <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade" id="cidade">
-                  </div>
-                  <div>
-                    <label for="estado">Estado</label>
-                    <input type="text" name="estado" id="estado">
-                  </div>
-                  <button type="submit">Cadastrar</button>
-                </form>
-            </section>
-          
+            <hr>
+            <div class="galleryContent__images">
+                <figure id="img_01">
+                    <img src="../../src/assets/images/image 10.png" alt="Photo 01" >
+                </figure>
+                <figure id="img_02">
+                    <img src="../../src/assets/images/image 12.png" alt="Photo 02" >
+                </figure>
+                <figure id="img_03">
+                    <img src="../../src/assets/images/image 13.png" alt="Photo 03" >
+                </figure>
+                <figure id="img_04">
+                    <img src="../../src/assets/images/image 15.png" alt="Photo 04" >
+                </figure>
+                <figure id="img_05">
+                    <img src="../../src/assets/images/image 14.png" alt="Photo 05" >
+                </figure>
+                <figure id="img_06">
+                    <img src="../../src/assets/images/image 16.png" alt="Photo 06" >
+                </figure>
+                <figure id="img_07">
+                    <img src="../../src/assets/images/image 17.png" alt="Photo 07" >
+                </figure>
+                <figure id="img_08">
+                    <img src="../../src/assets/images/image 15.png" alt="Photo 08" >
+                </figure>
+            </div>
         </main>
 
 
@@ -88,7 +92,7 @@
               </p>
             </address>
             <div>
-              <img src="../public/icons/LogoWhite.png" alt="Logo" />
+              <img src="../../public/icons/LogoWhite.png" alt="Logo" />
             </div>
       
             <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>

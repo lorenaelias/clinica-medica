@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="../public/icons/Logo.png" type="image/png">
+    <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../styles/appointment.css" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/appointment.css" />
     <title>DevHealth | Agendar Consulta</title>
   </head>
   <body>
         <header class="header">
             <div class="header__logo">
-            <img src="../public/icons/Logo.png" alt="Logo" />
+            <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" /></a>
             <p>DevHealth</p>
             </div>
             <nav class="header__navigation">
@@ -26,15 +26,15 @@
                 <a href="#">Agendamentos</a>
                 </li>
                 <li class="header__navigation__list__item">
-                <a href="#">Galeria</a>
+                <a href="../gallery">Galeria</a>
                 </li>
                 <li class="header__navigation__list__item">
-                <a href="#">Cadastro</a>
+                <a href="../register">Cadastro</a>
                 </li>
                 <li
                 class="header__navigation__list__item header__navigation__list__item--highlight"
                 >
-                <a href="#">Login</a>
+                <a href="../login">Login</a>
                 </li>
             </ul>
             </nav>
@@ -54,7 +54,7 @@
             </section>
             <section class="appointmentContent__formContainer">
                 <h2>Para cadastrar um novo endereço preencha o campo abaixo</h2>
-                <form action="" class="appointmentContent__form">
+                <form action="../../scripts/appointment.php" class="appointmentContent__form">
                   <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome">
@@ -66,13 +66,13 @@
                   <div>
                     <label for="sexo">Sexo</label>
                     <select name="sexo" id="sexo">
-                        <option value="Masc">Masculino</option>
-                        <option value="Fem">Feminino</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
                     </select>
                   </div>
                   <div>
                     <label for="medicSpecialuty">Especialidade médica desejada</label>
-                    <input type="text" name="medicSpecialuty" id="medicSpecialuty">
+                    <input type="text" name="medicSpecialty" id="medicSpecialty">
                   </div>
                   <div>
                     <label for="medicName">Nome do médico especialista</label>
@@ -109,7 +109,7 @@
               </p>
             </address>
             <div>
-              <img src="../public/icons/LogoWhite.png" alt="Logo" />
+              <img src="../../public/icons/LogoWhite.png" alt="Logo" />
             </div>
       
             <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
