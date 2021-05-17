@@ -18,18 +18,39 @@
         <div class="loginContainer">
             <img src="../../src/assets/icons/medicsLogin.png" class="loginContainer__Image" alt="medics">
             <h1 class="loginContainer__Title">DevHealth</h1>
-            <form class="loginContainer__Form">
+            <form id="loginForm" class="loginContainer__Form">
                 <div class="loginContainer__Form__field">
                     <label for="loginEmailInput">Seu email</label>
-                    <input type="email" id="loginEmailInput" required>
+                    <input type="email" id="loginEmailInput" name="email" required>
                 </div>
                 <div class="loginContainer__Form__field">
                     <label for="loginPasswordInput">Sua senha</label>
-                    <input type="password" id="loginPasswordInput" required>
+                    <input type="password" id="loginPasswordInput" name="senha" required>
                 </div>
-                <button class="loginContainer__Form__Button">Entrar</button>
+                <button type="submit" class="loginContainer__Form__Button">Entrar</button>
             </form>
         </div>
         <span class="greetings">Desenvolvido com muito amor por Lola, Trakinas e Ricardin</span>
   </body>
+
+  <script>
+    const formulario = document.getElementById('loginForm');
+
+    formulario.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formularioData = new FormData(this);
+
+      fetch('../../src/scripts/login', {
+        method: 'POST',
+        body: formularioData
+      }).then(function (res) {
+        return res.text();
+      }).then(function (text) {
+        console.log(text);        //TODO: retirar depois
+      }).catch(function (error) {
+        console.log(error);
+      })
+    })
+  </script>
 </html>
