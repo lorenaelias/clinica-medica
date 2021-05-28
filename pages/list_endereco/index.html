@@ -34,17 +34,66 @@
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="listEnderecos__content__list" >
-                <ul class="enderecosList" >
-
-                    <li class="enderecosList__item" >
-                        <p>Avenida Floriano Peixoto, 1420</p>
-                        <p>Uberlândia</p>
-                        <p>Minas Gerais</p>
-                        <p>38456-78</p>
-                    </li>
-
+                <ul class="enderecosList" id="enderecoList">
                 </ul>
             </div>
         </div>
+
+
+        <script>
+            window.onload = buscaMedicos;
+            
+
+            function buscaMedicos(){
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "../../src/scripts/getAddresses/index.php", true);
+                xhr.send();
+
+                xhr.onload = function () {
+
+                    if (xhr.status != 200){
+                        console.log("Erro!");
+                    }
+
+                    var response = JSON.parse(xhr.responseText);
+
+                    let enderecos = document.querySelector("#enderecoList");
+                    
+                    for (i = enderecos.length - 1; i >= 0; i--) {
+                        enderecos.remove(i);
+                    }
+
+                    for (i=0; i<response.length; i++) {
+                    
+                        endereco = response[i];
+  
+                        const novoLi = document.createElement("li");  
+
+                        const logradouro = document.createElement("p");
+                        logradouro.textContent = endereco.logradouro;
+
+                        const cidade = document.createElement("p"); 
+                        cidade.textContent = endereco.cidade;
+
+                        const estado = document.createElement("p"); 
+                        estado.textContent = endereco.estado;
+
+                        const cep = document.createElement("p"); 
+                        cep.textContent = endereco.cep;
+
+                        novoLi.appendChild(logradouro);
+                        novoLi.appendChild(cidade);
+                        novoLi.appendChild(estado);
+                        novoLi.appendChild(cep);   
+                        novoLi.classList.add("enderecosList__item");           
+                        
+                        enderecos.appendChild(novoLi);
+                    }   
+                    
+                }
+            }
+        </script>
   </body>
 </html>
