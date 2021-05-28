@@ -50,7 +50,7 @@
                     <input type="text" name="telefone" id="telefone">
                   </div>
                   <div>
-                    <label for="cep">CEP</label>
+                    <label for="cep">CEP (Ex. 38400-100)</label>
                     <input type="text" name="cep" id="cep">
                   </div>
                   <div>
@@ -81,17 +81,85 @@
                     <label for="cargo">Cargo</label>
                     <input type="text" name="cargo" id="cargo">
                   </div>
+
                   <div>
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" name="especialidade" id="especialidade">
+                    <label for="medico">Médico</label>
+                    <select id="selectMedico">
+                      <option value="true">Sim</option>
+                      <option value="false" selected>Não</option>
+                    </select>
                   </div>
-                  <div>
-                    <label for="crm">CRM</label>
-                    <input type="text" name="crm" id="crm">
+
+                  <div id="ifMedico" style="display: none;">
+                    <div>
+                      <label for="especialidade">Especialidade</label>
+                      <input type="text" name="especialidade" id="especialidade">
+                    </div>
+                    <div>
+                      <label for="crm">CRM</label>
+                      <input type="text" name="crm" id="crm">
+                    </div>
                   </div>
                   <button type="submit">Cadastrar</button>
                 </form>
             </div>
         </div>
+
+
+        <script>
+          let selected = document.querySelector("#selectMedico");
+
+          selected.addEventListener('change', mostraOpcoes);
+
+          function mostraOpcoes(ev){
+            ev.preventDefault();
+
+            if(selected.value == 'true'){
+              document.querySelector("#ifMedico").style.display = 'block';
+            } else{
+              document.querySelector("#ifMedico").style.display = 'none';
+            }
+          }
+
+
+          function buscaEndereco(cep) {
+            if (cep.length != 9) return;
+      
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "../../src/scripts/getAddress/?cep=" + cep, true);
+      
+            xhr.onload = function () {
+              if (xhr.status != 200) {
+                console.error("Falha inesperada: " + xhr.responseText);
+                return;
+              }
+      
+              try {
+                var endereco = JSON.parse(xhr.responseText);
+              }
+              catch (e) {
+                console.error("String JSON inválida: " + xhr.responseText);
+                return;
+              }
+      
+              let form = document.querySelector("form");
+              form.logradouro.value = endereco.logradouro;
+              form.estado.value = endereco.estado;
+              form.cidade.value = endereco.cidade;
+            }
+      
+            xhr.onerror = function () {
+              console.error("Erro de rede - requisição não finalizada");
+            };
+      
+            xhr.send();
+          }
+      
+          window.onload = function () {
+            const inputCep = document.querySelector("#cep");
+            inputCep.onkeyup = () => buscaEndereco(inputCep.value);
+          }
+      
+        </script>
   </body>
 </html>
