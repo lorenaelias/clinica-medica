@@ -1,0 +1,96 @@
+.listFuncionarios__container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    padding: 2rem 3rem;
+}
+
+.listFuncionarios__aside {
+    width: 10rem;
+    height: 100%;
+
+    background-color: var(--blue);
+
+    border-radius: 1rem;
+}
+
+.listFuncionarios__aside__icons {
+    height: 100%;
+    padding: 3rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listFuncionarios__aside__icons a {
+    filter: brightness(.9);
+
+    transition: all .3s;
+}
+
+.listFuncionarios__aside__icons a:hover {
+    filter: brightness(1);
+}
+
+.listFuncionarios__aside__icons a:not(:last-child) {
+    margin-top: 1rem;
+}
+
+.listFuncionarios__aside__icons a:last-child {
+    margin-top: auto;
+}
+
+.listFuncionarios__content {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.listFuncionarios__content__header {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listFuncionarios__content__list {
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+}
+
+.funcionariosList__item {
+    width: 100%;
+    padding: 1.5rem 2.5rem;
+    list-style: none;
+
+    font-size: 1.5rem;
+    background-color: var(--white);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.funcionariosList__item:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.funcionariosList__item__profile {
+    display: flex;
+    align-items: center;
+}
+
+.funcionariosList__item__profile div {
+    width: 4rem;
+    height: 4rem;
+    background: #757575;
+    border-radius: 50%;
+    margin-right: .7rem;
+}
+
+.funcionariosList__item__profile p {
+    margin-right: 1rem;
+}
