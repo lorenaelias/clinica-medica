@@ -1,0 +1,129 @@
+.cadFuncionario__container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    padding: 2rem 3rem;
+}
+
+.cadFuncionario__aside {
+    width: 10rem;
+    height: 100%;
+
+    background-color: var(--blue);
+
+    border-radius: 1rem;
+}
+
+.cadFuncionario__aside__icons {
+    height: 100%;
+    padding: 3rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cadFuncionario__aside__icons a {
+    filter: brightness(.9);
+
+    transition: all .3s;
+}
+
+.cadFuncionario__aside__icons a:hover {
+    filter: brightness(1);
+}
+
+.cadFuncionario__aside__icons a:not(:last-child) {
+    margin-top: 1rem;
+}
+
+.cadFuncionario__aside__icons a:last-child {
+    margin-top: auto;
+}
+
+.cadFuncionario__content {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.cadFuncionario__content__header {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: end;
+}
+
+.cadFuncionario_content__formContainer {
+    height: calc(100% - 5rem);
+    padding: 1rem 3rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+
+    overflow-y: auto;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.cadFuncionario_content__formContainer h1 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.cadFuncionario_content__formContainer form div {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 1.5rem;
+}
+
+.cadFuncionario_content__formContainer form div label {
+    font-size: 1.7rem;
+}
+
+.cadFuncionario_content__formContainer form div input {
+    font-size: 1.7rem;
+
+    border: none;
+    border-bottom: 1px solid var(--black);
+
+    padding-left: .4rem;
+    padding-bottom: .2rem;
+}
+
+#nome, #email, #logradouro {
+    width: 50%;
+}
+
+#cargo, #especialidade, #crm, #tipoSanguineo {
+    width: 25%;
+    font-size: 1.6rem;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    padding-left: .4rem;
+    padding-bottom: .2rem;
+}
+
+#sexo, #telefone, #cidade, #estado, #salario, #senha {
+    width: 20%;
+}
+
+#cep, #iniContrato {
+    width: 15%;
+}
+
+.cadFuncionario_content__formContainer form button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+
+    transition: all .3s;
+}
+
+.cadFuncionario_content__formContainer form button:hover {
+    filter: brightness(.8);
+}

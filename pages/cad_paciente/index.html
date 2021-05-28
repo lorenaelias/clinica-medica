@@ -11,8 +11,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../../styles/cad_funcionario.css" />
-    <title>DevHealth | Cadastrar funcionário</title>
+    <link rel="stylesheet" href="../../styles/cad_paciente.css" />
+    <title>DevHealth | Cadastrar paciente</title>
   </head>
   <body class="cadFuncionario__container">
         <aside class="cadFuncionario__aside">
@@ -31,7 +31,7 @@
         <div class="cadFuncionario__content">
             <h2 class="cadFuncionario__content__header">Terça, 14 de janeiro 2021</h2>
             <div class="cadFuncionario_content__formContainer">
-                <h1>Cadastrar novo funcionário</h1>
+                <h1>Cadastrar novo paciente</h1>
                 <form>
                   <div>
                     <label for="nome">Nome</label>
@@ -65,13 +65,28 @@
                     <label for="estado">Estado</label>
                     <input type="text" name="estado" id="estado">
                   </div>
+
+
                   <div>
-                    <label for="iniContrato">Início do Contrato</label>
-                    <input type="date" name="iniContrato" id="iniContrato">
+                    <label for="peso">Peso</label>
+                    <input type="number" name="peso" id="peso">
                   </div>
                   <div>
-                    <label for="salario">Salário</label>
-                    <input type="number" name="salario" id="salario">
+                    <label for="altura">Altura</label>
+                    <input type="number" name="altura" id="altura">
+                  </div>
+                  <div>
+                    <label for="tipoSanguineo">Tipo sanguíneo</label>
+                    <select name="tipoSanguineo" id="tipoSanguineo">
+                        <option selected value="A+">A positivo</option>
+                        <option value="A-">A negativo</option>
+                        <option value="B+">B positivo</option>
+                        <option value="B-">B negativo</option>
+                        <option value="AB+">AB positivo</option>
+                        <option value="AB-">AB negativo</option>
+                        <option value="0+">0 positivo</option>
+                        <option value="0-">0 negativo</option>
+                    </select>
                   </div>
                   <div>
                     <label for="senha">Senha</label>
@@ -80,14 +95,6 @@
                   <div>
                     <label for="cargo">Cargo</label>
                     <input type="text" name="cargo" id="cargo">
-                  </div>
-                  <div>
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" name="especialidade" id="especialidade">
-                  </div>
-                  <div>
-                    <label for="crm">CRM</label>
-                    <input type="text" name="crm" id="crm">
                   </div>
                   <button type="submit">Cadastrar</button>
                 </form>
