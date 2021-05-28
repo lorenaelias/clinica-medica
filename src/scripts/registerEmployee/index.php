@@ -5,7 +5,7 @@ $pdo = mysqlConnect();
 
 $nome = $sexo = $email = $telefone = "";
 $cep = $logradouro = $cidade = $estado = "";
-$dataContrato = $salario = $senha = "";
+$iniContrato = $salario = $senha = "";
 $medico = $especialidade = $crm = "";
 
 if (isset($_POST["nome"])) $nome = $_POST["nome"];
@@ -17,11 +17,11 @@ if (isset($_POST["logradouro"])) $logradouro = $_POST["logradouro"];
 if (isset($_POST["cidade"])) $cidade = $_POST["cidade"];
 if (isset($_POST["estado"])) $estado = $_POST["estado"];
 
-if (isset($_POST["dataContrato"])) $dataContrato = $_POST["dataContrato"];
-if (isset($_POST["salario"])) $salario = $_POST["salario"];
+if (isset($_POST["iniContrato"])) $iniContrato = date("Y-m-d", strtotime($_POST["iniContrato"]));
+if (isset($_POST["salario"])) $salario = floatval($_POST["salario"]);
 if (isset($_POST["senha"])) $senha = $_POST["senha"];
 
-if (isset($_POST["medico"])) $medico = $_POST["medico"];
+if (isset($_POST["medico"])) $medico = (string) $_POST["medico"];
 if (isset($_POST["especialidade"])) $especialidade = $_POST["especialidade"];
 if (isset($_POST["crm"])) $crm = $_POST["crm"];
 
@@ -58,25 +58,28 @@ try {
 
   $stmt2 = $pdo->prepare($sql2);
   if (!$stmt2->execute([
-    $idNovoFuncionario, $dataContrato, $salario, $senhaHash
+    $idNovoFuncionario, $iniContrato, $salario, $senhaHash
   ])) throw new Exception('Falha na segunda inserção');
 
-  if($medico) {
+  if($medico == "true") {
     $stmt3 = $pdo->prepare($sql3);
-    if (!$stmt2->execute([
+    if (!$stmt3->execute([
         $idNovoFuncionario, $especialidade, $crm
-    ])) throw new Exception('Falha na segunda inserção');
+    ])) throw new Exception('Falha na terceira inserção');
   }
 
   $pdo->commit();
-
-  header("Location: ../../../pages/restrict/registerEmployee");
-  exit();
+  $success = true;
 } 
 catch (Exception $e) {
   $pdo->rollBack();
+  $success = false;
   if ($e->errorInfo[1] === 1062)
     exit('Dados duplicados: ' . $e->getMessage());
   else
     exit('Falha ao cadastrar os dados: ' . $e->getMessage());
 }
+
+echo json_encode($success);
+
+?>
