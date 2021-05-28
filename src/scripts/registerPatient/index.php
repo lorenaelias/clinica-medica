@@ -48,14 +48,16 @@ try {
   ])) throw new Exception('Falha na segunda inserção');
 
   $pdo->commit();
-
-  header("Location: ../../../pages/restrict/registerPatient");
-  exit();
+  $sucesso = true;
 } 
 catch (Exception $e) {
   $pdo->rollBack();
+  $sucesso = false;
   if ($e->errorInfo[1] === 1062)
     exit('Dados duplicados: ' . $e->getMessage());
   else
     exit('Falha ao cadastrar os dados: ' . $e->getMessage());
 }
+
+  echo json_encode($sucesso);
+?>
