@@ -50,7 +50,7 @@
                     <input type="text" name="telefone" id="telefone">
                   </div>
                   <div>
-                    <label for="cep">CEP</label>
+                    <label for="cep">CEP (Ex. 38400-100)</label>
                     <input type="text" name="cep" id="cep">
                   </div>
                   <div>
@@ -93,5 +93,50 @@
                 </form>
             </div>
         </div>
+
+
+        <script>
+
+
+
+          function buscaEndereco(cep) {
+            if (cep.length != 9) return;
+      
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "../../src/scripts/getAddress/?cep=" + cep, true);
+      
+            xhr.onload = function () {
+              if (xhr.status != 200) {
+                console.error("Falha inesperada: " + xhr.responseText);
+                return;
+              }
+      
+              try {
+                var endereco = JSON.parse(xhr.responseText);
+              }
+              catch (e) {
+                console.error("String JSON inválida: " + xhr.responseText);
+                return;
+              }
+      
+              let form = document.querySelector("form");
+              form.logradouro.value = endereco.logradouro;
+              form.estado.value = endereco.estado;
+              form.cidade.value = endereco.cidade;
+            }
+      
+            xhr.onerror = function () {
+              console.error("Erro de rede - requisição não finalizada");
+            };
+      
+            xhr.send();
+          }
+      
+          window.onload = function () {
+            const inputCep = document.querySelector("#cep");
+            inputCep.onkeyup = () => buscaEndereco(inputCep.value);
+          }
+      
+        </script>
   </body>
 </html>
