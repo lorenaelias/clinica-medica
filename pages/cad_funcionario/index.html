@@ -81,13 +81,24 @@
                     <label for="cargo">Cargo</label>
                     <input type="text" name="cargo" id="cargo">
                   </div>
+
                   <div>
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" name="especialidade" id="especialidade">
+                    <label for="medico">Médico</label>
+                    <select id="selectMedico">
+                      <option value="true">Sim</option>
+                      <option value="false" selected>Não</option>
+                    </select>
                   </div>
-                  <div>
-                    <label for="crm">CRM</label>
-                    <input type="text" name="crm" id="crm">
+
+                  <div id="ifMedico" style="display: none;">
+                    <div>
+                      <label for="especialidade">Especialidade</label>
+                      <input type="text" name="especialidade" id="especialidade">
+                    </div>
+                    <div>
+                      <label for="crm">CRM</label>
+                      <input type="text" name="crm" id="crm">
+                    </div>
                   </div>
                   <button type="submit">Cadastrar</button>
                 </form>
@@ -96,7 +107,19 @@
 
 
         <script>
+          let selected = document.querySelector("#selectMedico");
 
+          selected.addEventListener('change', mostraOpcoes);
+
+          function mostraOpcoes(ev){
+            ev.preventDefault();
+
+            if(selected.value == 'true'){
+              document.querySelector("#ifMedico").style.display = 'block';
+            } else{
+              document.querySelector("#ifMedico").style.display = 'none';
+            }
+          }
 
 
           function buscaEndereco(cep) {
