@@ -44,8 +44,8 @@
         <div>
           <label for="sexo">Sexo</label>
           <select name="sexo" id="sexo">
-              <option value="Masculino">Masculino</option>
-              <option value="Feminino">Feminino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
           </select>
         </div>
         <div>
@@ -83,7 +83,7 @@
 
         <div>
           <label for="medico">Médico</label>
-          <select id="selectMedico">
+          <select id="selectMedico" name="medico">
             <option value="true">Sim</option>
             <option value="false" selected>Não</option>
           </select>
@@ -99,11 +99,16 @@
             <input type="text" name="crm" id="crm">
           </div>
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit" id="buttonCad">Cadastrar</button>
       </form>
+      <div id="registerSuccess" style="display: none; background-color: rgba(20,200,100,.6);">
+        Cadastro efetuado com sucesso.
+      </div>
+      <div id="registerFail" style="display: none; background-color: rgba(200,20,20,.6);">
+        Erro no cadastro. Tente novamente.
+      </div>
     </div>
   </div>
-
 
   <script>
     let selected = document.querySelector("#selectMedico");
