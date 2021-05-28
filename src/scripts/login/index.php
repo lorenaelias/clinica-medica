@@ -1,11 +1,22 @@
 <?php
 
+class RequestResponse{
+  public $success;
+  public $destination;
+
+  function __construct($success, $destination)
+  {
+      $this->success = $success;
+      $this->destination = $destination;
+  }
+}
+
 function checkLogin($pdo, $email, $senha)
 {
   $sql = <<<SQL
     SELECT senhaHash
-    FROM PESSOA_TF INNER JOIN PACIENTE_TF
-    ON PACIENTE_TF.codigo = PESSOA_TF.codigo
+    FROM PESSOA_TF INNER JOIN FUNCIONARIO_TF
+    ON FUNCIONARIO_TF.codigo = PESSOA_TF.codigo
     WHERE email = ?
     SQL;
 
@@ -23,24 +34,24 @@ function checkLogin($pdo, $email, $senha)
   }
 }
 
-$errorMsg = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  require "../../../../conexaoMysql.php";
-  $pdo = mysqlConnect();
 
-  $email = $senha = "";
+require "../../../../conexaoMysql.php";
+$pdo = mysqlConnect();
 
-  if (isset($_POST["email"]))
-    $email = $_POST["email"];
-  if (isset($_POST["senha"]))
-    $senha = $_POST["senha"];
+$email = $senha = "";
 
-  if (checkLogin($pdo, $email, $senha)) {
-    header("Location: ../../../pages/restrict");
-    exit();
-  } else
-    $errorMsg = "Dados incorretos";
+if (isset($_POST["email"]))
+  $email = $_POST["email"];
+if (isset($_POST["senha"]))
+  $senha = $_POST["senha"];
+
+$sucesso = false;
+$dest = "";
+if (checkLogin($pdo, $email, $senha)) {
+  $sucesso = true;
+  $dest = "../../../pages/dashboard";
 }
 
+echo json_encode(new RequestResponse($sucesso, $dest));
 ?>
