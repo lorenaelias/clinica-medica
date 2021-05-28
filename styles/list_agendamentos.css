@@ -1,0 +1,80 @@
+.listAgendamentos__container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    padding: 2rem 3rem;
+}
+
+.listAgendamentos__aside {
+    width: 10rem;
+    height: 100%;
+
+    background-color: var(--blue);
+
+    border-radius: 1rem;
+}
+
+.listAgendamentos__aside__icons {
+    height: 100%;
+    padding: 3rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listAgendamentos__aside__icons a {
+    filter: brightness(.9);
+
+    transition: all .3s;
+}
+
+.listAgendamentos__aside__icons a:hover {
+    filter: brightness(1);
+}
+
+.listAgendamentos__aside__icons a:not(:last-child) {
+    margin-top: 1rem;
+}
+
+.listAgendamentos__aside__icons a:last-child {
+    margin-top: auto;
+}
+
+.listAgendamentos__content {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.listAgendamentos__content__header {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listAgendamentos__content__list {
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+}
+
+.agendamentosList__item {
+    width: 100%;
+    padding: 1.5rem 2.5rem;
+    list-style: none;
+
+    font-size: 1.5rem;
+    background-color: var(--white);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.agendamentosList__item:not(:first-child) {
+    margin-top: 1rem;
+}
+
