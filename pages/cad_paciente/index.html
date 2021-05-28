@@ -32,7 +32,7 @@
             <h2 class="cadFuncionario__content__header">Terça, 14 de janeiro 2021</h2>
             <div class="cadFuncionario_content__formContainer">
                 <h1>Cadastrar novo paciente</h1>
-                <form>
+                <form id="pacienteForm" class="loginContainer__Form">
                   <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome">
@@ -101,4 +101,19 @@
             </div>
         </div>
   </body>
+
+  <script>
+    const formulario = document.getElementById('pacienteForm');
+
+    formulario.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formularioData = new FormData(this);
+
+      fetch('../../src/scripts/registerAddress', {
+        method: 'POST',
+        body: formularioData
+      }).then(res => res.json())
+    })
+  </script>
 </html>
