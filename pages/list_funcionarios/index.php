@@ -1,3 +1,11 @@
+<?php
+require_once "../../../conexaoMysql.php";
+require_once "../../src/scripts/autenticacao.php";
+
+session_start();
+$pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,12 +19,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../../styles/list_agendamentos.css" />
-    <title>DevHealth | Listar Agendamentos</title>
+    <link rel="stylesheet" href="../../styles/list_funcionarios.css" />
+    <title>DevHealth | Listar Funcionários</title>
   </head>
-  <body class="listAgendamentos__container">
-        <aside class="listAgendamentos__aside">
-            <nav class="listAgendamentos__aside__icons">
+  <body class="listFuncionarios__container">
+        <aside class="listFuncionarios__aside">
+            <nav class="listFuncionarios__aside__icons">
                 <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home" /></a>
                 <a href="../cad_funcionario/index.html"><img src="../../public/icons/heart.png" alt="heart" /></a>
                 <a href="../cad_paciente/index.html"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
@@ -25,22 +33,25 @@
                 <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
                 <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
                 <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
-                <a href=".."><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                <a href="../../scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
         </aside>
-        <div class="listAgendamentos__content">
-            <div class="listAgendamentos__content__header">
-                <h1>Listagem de Agendamentos</h1>
+        <div class="listFuncionarios__content">
+            <div class="listFuncionarios__content__header">
+                <h1>Listagem de Funcionários</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listAgendamentos__content__list" >
-                <ul class="agendamentosList" >
+            <div class="listFuncionarios__content__list" >
+                <ul class="funcionariosList" >
 
-                    <li class="agendamentosList__item" >
-                        <p>Ricardo Zamboni Silva</p>
-                        <p>25/04</p>
-                        <p>12:00h</p>
-                        <p>med158847</p>
+                    <li class="funcionariosList__item" >
+                        <div class="funcionariosList__item__profile">
+                            <div></div>
+                            <p>Daniel Furado</p>
+                        </div>
+                        <div class="funcionariosList__item__code">
+                            <p>enf152024</p>
+                        </div>
                     </li>
 
                 </ul>

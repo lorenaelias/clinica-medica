@@ -1,3 +1,11 @@
+<?php
+require_once "../../../conexaoMysql.php";
+require_once "../../src/scripts/autenticacao.php";
+
+session_start();
+$pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +33,7 @@
                 <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
                 <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
                 <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
-                <a href=".."><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                <a href="../../scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
         </aside>
         <div class="listEnderecos__content">

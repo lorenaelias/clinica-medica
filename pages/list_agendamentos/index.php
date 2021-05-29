@@ -1,3 +1,11 @@
+<?php
+require_once "../../../conexaoMysql.php";
+require_once "../../src/scripts/autenticacao.php";
+
+session_start();
+$pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,12 +19,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../../styles/list_pacientes.css" />
-    <title>DevHealth | Listar Pacientes</title>
+    <link rel="stylesheet" href="../../styles/list_agendamentos.css" />
+    <title>DevHealth | Listar Agendamentos</title>
   </head>
-  <body class="listPacientes__container">
-        <aside class="listPacientes__aside">
-            <nav class="listPacientes__aside__icons">
+  <body class="listAgendamentos__container">
+        <aside class="listAgendamentos__aside">
+            <nav class="listAgendamentos__aside__icons">
                 <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home" /></a>
                 <a href="../cad_funcionario/index.html"><img src="../../public/icons/heart.png" alt="heart" /></a>
                 <a href="../cad_paciente/index.html"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
@@ -25,26 +33,22 @@
                 <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
                 <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
                 <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
-                <a href=".."><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                <a href="../../scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
         </aside>
-        <div class="listPacientes__content">
-            <div class="listPacientes__content__header">
-                <h1>Listagem de Pacientes</h1>
+        <div class="listAgendamentos__content">
+            <div class="listAgendamentos__content__header">
+                <h1>Listagem de Agendamentos</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listPacientes__content__list" >
-                <ul class="pacientList" >
+            <div class="listAgendamentos__content__list" >
+                <ul class="agendamentosList" >
 
-                    <li class="pacientList__item" >
-                        <div class="pacientList__item__profile">
-                            <div></div>
-                            <p>Ilmerio Reis</p>
-                            <span>A+</span>
-                        </div>
-                        <div class="pacientList__item__contact">
-                            <p>(34) 99958-4525</p>
-                        </div>
+                    <li class="agendamentosList__item" >
+                        <p>Ricardo Zamboni Silva</p>
+                        <p>25/04</p>
+                        <p>12:00h</p>
+                        <p>med158847</p>
                     </li>
 
                 </ul>
