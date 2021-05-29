@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../styles/globalStyles.css" />
-    <link rel="stylesheet" href="../../styles/login.css" />
-    <title>DevHealth | Login</title>
-  </head>
-  <body class="loginBackground">
-        <div class="loginContainer">
-            <img src="../../src/assets/icons/medicsLogin.png" class="loginContainer__Image" alt="medics">
-            <h1 class="loginContainer__Title">DevHealth</h1>
-            <div id="loginFailMsg">Credenciais inválidas!</div>
-            <form id="loginForm" class="loginContainer__Form">
-                <div class="loginContainer__Form__field">
-                    <label for="loginEmailInput">Seu email</label>
-                    <input type="email" id="loginEmailInput" name="email" required>
-                </div>
-                <div class="loginContainer__Form__field">
-                    <label for="loginPasswordInput">Sua senha</label>
-                    <input type="password" id="loginPasswordInput" name="senha" required>
-                </div>
-                <button type="submit" class="loginContainer__Form__Button">Entrar</button>
-            </form>
-        </div>
-        <span class="greetings">Desenvolvido com muito amor por Lola, Trakinas e Ricardin</span>
-  </body>
 
-  <script>
-    const formulario = document.getElementById('loginForm');
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/globalStyles.css" />
+  <link rel="stylesheet" href="../../styles/login.css" />
+  <title>DevHealth | Login</title>
+</head>
 
-    formulario.addEventListener('submit', function (e) {
-      e.preventDefault();
+<body class="loginBackground">
+  <div class="loginContainer">
+    <img src="../../src/assets/icons/medicsLogin.png" class="loginContainer__Image" alt="medics">
+    <h1 class="loginContainer__Title">DevHealth</h1>
+    <div id="loginFailMsg">Credenciais inválidas!</div>
+    <form id="loginForm" class="loginContainer__Form">
+      <div class="loginContainer__Form__field">
+        <label for="loginEmailInput">Seu email</label>
+        <input type="email" id="loginEmailInput" name="email" required>
+      </div>
+      <div class="loginContainer__Form__field">
+        <label for="loginPasswordInput">Sua senha</label>
+        <input type="password" id="loginPasswordInput" name="senha" required>
+      </div>
+      <button type="submit" id="buttonLogin" class="loginContainer__Form__Button">Entrar</button>
+    </form>
+  </div>
+  <span class="greetings">Desenvolvido com muito amor por Lola, Trakinas e Ricardin</span>
+</body>
 
-      const formularioData = new FormData(this);
+<script>
+  let botao = document.querySelector("#buttonLogin");
+  botao.addEventListener('click', validar);
 
-      fetch('../../src/scripts/login', {
-        method: 'POST',
-        body: formularioData
-      }).then(res => res.json())
-        .then(function (data) {
-          if (data.success == true) {
-            window.location.href = response.destination;
-          } else {
-            document.querySelector("#loginFailMsg").style.display = 'block';
-          }
-          console.log(data);
-        })
-        .catch(error => console.log(error))
-    })
-  </script>
+  function validar(ev) {
+    ev.preventDefault();
+
+    let meuForm = document.querySelector("form");
+    let formData = new FormData(meuForm);
+    let xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+      if (xhr.status != 200) {
+        console.error("Falha inesperada: " + xhr.responseText);
+      }
+
+      try {
+        var response = JSON.parse(xhr.responseText);
+      } catch (e) {
+        console.error("String JSON inválida: " + xhr.responseText);
+      }
+
+      if (response.success == false) {
+        document.querySelector("#loginFailMsg").style.display = 'block';
+      } else {
+        window.location.href = response.destination;
+      }
+    };
+
+    xhr.onerror = function () {
+      console.error("Erro de rede - requisição não finalizada");
+    };
+
+    xhr.open("POST", "../../src/scripts/login/index.php", true);
+    xhr.send(formData);
+  }
+</script>
+
 </html>
