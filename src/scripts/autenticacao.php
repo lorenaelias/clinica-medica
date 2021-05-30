@@ -17,14 +17,15 @@ function checkPassword($pdo, $email, $senha)
     
     $senhaHash = $row['senhaHash'];
     $cod = $row['cod'];
+    $nome = $row['nome'];
 
     if (!$senhaHash)
-      return array('senhaHash' => false, 'cod' => null);
+      return array('senhaHash' => false, 'cod' => null, 'nome' => null);
 
     if (!password_verify($senha, $senhaHash))
-      return array('senhaHash' => false, 'cod' => null);
+      return array('senhaHash' => false, 'cod' => null, 'nome' => null);
 
-    return array('senhaHash' => $senhaHash, 'cod' => $cod);
+    return array('senhaHash' => $senhaHash, 'cod' => $cod, 'nome' => $nome);
   } 
   catch (Exception $e) {
     exit('Falha inesperada: ' . $e->getMessage());

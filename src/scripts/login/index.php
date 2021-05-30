@@ -26,12 +26,14 @@ $dest = "";
 $arr = checkPassword($pdo, $email, $senha);
 $senhaHash = $arr['senhaHash'];
 $cod = $arr['cod'];
+$nome = $arr['nome'];
 
 if ($senhaHash) {
   
   $_SESSION['email'] = $email;
   $_SESSION['loginString'] = hash('sha512', $senhaHash . $_SERVER['HTTP_USER_AGENT']); 
   $_SESSION['codigo'] = $cod;
+  $_SESSION['nome'] = $nome;
 
   $sucesso = true;
   $dest = "../dashboard";
