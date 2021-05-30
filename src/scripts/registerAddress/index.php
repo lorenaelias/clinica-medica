@@ -34,5 +34,4 @@ catch (Exception $e) {
   else
     exit('Falha ao cadastrar os dados: ' . $e->getMessage());
 }
-print_r($success);
 echo json_encode($success);

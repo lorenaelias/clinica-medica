@@ -138,6 +138,11 @@
                 campoSelect.remove(i);
             }
 
+            option = document.createElement("option");
+            option.text = "Selecione";
+            option.value = "";
+            campoSelect.add(option);
+
             for (i=0; i<response.length; i++) {
 
                 especialidade = response[i];
@@ -154,13 +159,12 @@
         xhr.send();
       }
 
-      window.onload = function () {
-        const especialidade = document.querySelector("#medicSpecialuty");
-        especialidade.addEventListener("change", buscaMedico);
-      };
+      let especialidade = document.querySelector("#medicSpecialuty");
+      especialidade.addEventListener("change", buscaMedico);
+      
       function buscaMedico(ev) {
         ev.preventDefault();
-        const especialidade_medico = document.querySelector("#medicSpecialuty");
+        let especialidade_medico = document.querySelector("#medicSpecialuty");
         let xhr = new XMLHttpRequest();
         xhr.open(
           "GET",

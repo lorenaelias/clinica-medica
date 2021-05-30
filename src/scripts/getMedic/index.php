@@ -2,17 +2,12 @@
 require "../../../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
-$especialidade_medico = '';
-
-
-if(isset($_GET["especialidade_medico"])) $especialidade_medico = $_GET["especialidade_medico"];  
-
 try {
 
   $sql = <<<SQL
-  SELECT nome_medico
-  FROM medico
-  WHERE especialidade_medico = ?
+  SELECT nome
+  FROM MEDICO_TF INNER JOIN PESSOA_TF ON MEDICO_TF.codigo = PESSOA_TF.codigo
+  WHERE especialidade = ?
   SQL;
 
   $stmt = $pdo->prepare($sql);
@@ -35,7 +30,7 @@ $stmt->execute([$especialidade]);
 
 $especialidades = array();
 while ($row = $stmt->fetch()) {
-    array_push($especialidades,new Especialidade($row['nome_medico'])); 
+    array_push($especialidades,new Especialidade($row['nome'])); 
 }
 echo json_encode($especialidades);
 ?>
