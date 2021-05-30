@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_enderecos.css" />
     <title>DevHealth | Listar Endereços</title>
   </head>
-  <body class="listEnderecos__container">
+  <body class="listEnderecos__container" onload="ifMedico();">
         <aside class="listEnderecos__aside">
             <nav class="listEnderecos__aside__icons">
                 <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -33,7 +33,7 @@ exitWhenNotLogged($pdo);
                 <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
                 <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
                 <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
-                <a href="../../scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
         </aside>
         <div class="listEnderecos__content">
@@ -102,6 +102,28 @@ exitWhenNotLogged($pdo);
                     
                 }
             }
+        </script>
+
+        <script>
+          function ifMedico() {
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "../../src/scripts/isDoc/index.php", true);
+            xhr.send();
+
+            xhr.onload = function () {
+
+                if (xhr.status != 200){
+                    console.log("Erro!");
+                }
+
+                var response = JSON.parse(xhr.responseText);
+                if( response.success == true )
+                  document.querySelector("#meusAgend").style.display = 'inline-block';
+              
+            }
+          }
         </script>
   </body>
 </html>

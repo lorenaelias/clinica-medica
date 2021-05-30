@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/dashboard.css" />
     <title>DevHealth | Dashboard</title>
   </head>
-  <body class="dashboard__container">
+  <body class="dashboard__container" onload="ifMedico();">
         <aside class="dashboard__aside">
             <nav class="dashboard__aside__icons">
                 <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -32,8 +32,10 @@ exitWhenNotLogged($pdo);
                 <a href="../list_funcionarios/index.html"><img src="../../public/icons/group.png" alt="group" /></a>
                 <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
                 <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
-                <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
-                <a href="../../scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                
+                <a href="../list_meus_agendamentos/index.html" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
+                
+                <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
         </aside>
 
@@ -45,7 +47,7 @@ exitWhenNotLogged($pdo);
           <div class="dashboard__content__painel">
             <img src="../../src/assets/images/HPro.png" alt="Health professional">
             <div>
-              <p>Seja bem vindo(a), <span>Dr. Lorena</span></p>
+              <p>Seja bem vindo(a), <span><?php echo $_SESSION['nome'];?></span></p>
               <span>Esperamos que seu dia seja maravilhoso!</span>
             </div>
           </div>
@@ -71,7 +73,7 @@ exitWhenNotLogged($pdo);
             <img src="../../src/assets/images/user.png" alt="Person photo" class="dashboard__profile__photo">
             <div class="dashboard__profile__infos">
                 <h3>Nome:</h3>
-                <p>Lorena Elias Silva</p>
+                <p><?php echo $_SESSION['nome'];?></p>
                 <h3>Cargo:</h3>
                 <p>Médica</p>
                 <h3>Área:</h3>
@@ -82,5 +84,27 @@ exitWhenNotLogged($pdo);
                 <p>+55 (34) 99584-6584</p>
             </div>
         </main>
+
+        <script>
+          function ifMedico() {
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "../../src/scripts/isDoc/index.php", true);
+            xhr.send();
+
+            xhr.onload = function () {
+
+                if (xhr.status != 200){
+                    console.log("Erro!");
+                }
+
+                var response = JSON.parse(xhr.responseText);
+                if( response.success == true )
+                  document.querySelector("#meusAgend").style.display = 'inline-block';
+              
+            }
+          }
+        </script>
   </body>
 </html>
