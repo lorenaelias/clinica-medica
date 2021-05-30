@@ -42,7 +42,7 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="listAgendamentos__content__list" >
-                <ul class="agendamentosList" >
+                <ul class="agendamentosList" id="agendamentosList">
 
                     <li class="agendamentosList__item" >
                         <p>Ricardo Zamboni Silva</p>
@@ -54,6 +54,70 @@ exitWhenNotLogged($pdo);
                 </ul>
             </div>
         </div>
+
+        <script>
+            window.onload = buscaAgendamentos;
+            
+
+            function buscaAgendamentos(){
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "../../src/scripts/getAppointments/index.php", true);
+                xhr.send();
+
+                xhr.onload = function () {
+
+                    if (xhr.status != 200){
+                        console.log("Erro!");
+                    }
+
+                    var response = JSON.parse(xhr.responseText);
+
+                    let agendamentos = document.querySelector("#appointmentsList");
+                    
+                    for (i = agendamentos.length - 1; i >= 0; i--) {
+                        agendamentos.remove(i);
+                    }
+
+                    for (i=0; i<response.length; i++) {
+                    
+                        agendamento = response[i];
+  
+                        const novoLi = document.createElement("li");  
+
+                        const nome = document.createElement("p");
+                        nome.textContent = agendamento.nome;
+
+                        const email = document.createElement("p"); 
+                        email.textContent = agendamento.email;
+
+                        const sexo = document.createElement("p"); 
+                        sexo.textContent = agendamento.sexo;
+
+                        const especialidade = document.createElement("p"); 
+                        especialidade.textContent = agendamento.especialidade;
+
+                        const data = document.createElement("p"); 
+                        data.textContent = agendamento.data;
+
+                        const horario = document.createElement("p"); 
+                        horario.textContent = agendamento.horario;
+
+                        novoLi.appendChild(nome);
+                        novoLi.appendChild(email);
+                        novoLi.appendChild(sexo);
+                        novoLi.appendChild(especialidade);
+                        novoLi.appendChild(data);   
+                        novoLi.appendChild(horario);   
+                        novoLi.classList.add("agendamentosList__item");           
+                        
+                        agendamentos.appendChild(novoLi);
+                    }   
+                    
+                }
+            }
+        </script>
 
         <script>
           function ifMedico() {

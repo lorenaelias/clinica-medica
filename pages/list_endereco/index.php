@@ -49,10 +49,10 @@ exitWhenNotLogged($pdo);
 
 
         <script>
-            window.onload = buscaMedicos;
+            window.onload = buscaEnderecos;
             
 
-            function buscaMedicos(){
+            function buscaEnderecos(){
 
                 var xhr = new XMLHttpRequest();
 
