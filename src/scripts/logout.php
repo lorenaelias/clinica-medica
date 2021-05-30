@@ -1,15 +1,14 @@
 <?php
 
-// inicia a sessão
 session_start();
 
-// apaga as variáveis de sessão
+$_SESSION['cod'] = -1;
+
 session_unset();
 
-// destrói a sessão
 session_destroy();
 
-header('Location: ../');
+header('Location: ../../index.php');
 exit();
 
 ?>
