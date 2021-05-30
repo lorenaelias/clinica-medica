@@ -1,5 +1,5 @@
 <?php
-require "../conexaoMysql.php";
+require "../../../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $especialidade_medico = '';
