@@ -39,7 +39,7 @@ exitWhenNotLogged($pdo);
         </aside>
         <div class="listMeusAgendamentos__content">
             <div class="listMeusAgendamentos__content__header">
-                <h1>Listagem dos meus Meusagendamentos</h1>
+                <h1>Listagem dos Meus Agendamentos</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="listMeusAgendamentos__content__list" >
