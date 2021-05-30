@@ -14,7 +14,7 @@
   <title>DevHealth | Cadastrar funcionário</title>
 </head>
 
-<body class="cadFuncionario__container">
+<body class="cadFuncionario__container" onload="ifMedico();">
   <aside class="cadFuncionario__aside">
     <nav class="cadFuncionario__aside__icons">
       <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -24,7 +24,7 @@
       <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" /></a>
       <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
       <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
-      <a href="../list_meus_agendamentos"><img src="../../public/icons/note.png" alt="note" /></a>
+      <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
       <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
     </nav>
   </aside>
@@ -89,7 +89,7 @@
           </select>
         </div>
 
-        <div id="ifMedico" style="display: none;">
+        <div id="somedico" style="display: none;">
           <div>
             <label for="especialidade">Especialidade</label>
             <input type="text" name="especialidade" id="especialidade">
@@ -119,9 +119,9 @@
       ev.preventDefault();
 
       if (selected.value == 'true') {
-        document.querySelector("#ifMedico").style.display = 'block';
+        document.querySelector("#somedico").style.display = 'block';
       } else {
-        document.querySelector("#ifMedico").style.display = 'none';
+        document.querySelector("#somedico").style.display = 'none';
       }
     }
 
@@ -198,6 +198,28 @@
       xhr.open("POST", "../../src/scripts/registerEmployee/index.php", true);
       console.log(formData);
       xhr.send(formData);
+    }
+  </script>
+
+  <script>
+    function ifMedico() {
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open("GET", "../../src/scripts/isDoc/index.php", true);
+      xhr.send();
+
+      xhr.onload = function () {
+
+          if (xhr.status != 200){
+              console.log("Erro!");
+          }
+
+          var response = JSON.parse(xhr.responseText);
+          if( response.success == true )
+            document.querySelector("#meusAgend").style.display = 'inline-block';
+        
+      }
     }
   </script>
 </body>

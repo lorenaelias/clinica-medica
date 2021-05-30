@@ -23,7 +23,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_meus_agendamentos.css" />
     <title>DevHealth | Listar Meus Agendamentos</title>
   </head>
-  <body class="listMeusAgendamentos__container">
+  <body class="listMeusAgendamentos__container" onload="ifMedico();">
         <aside class="listMeusAgendamentos__aside">
             <nav class="listMeusAgendamentos__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
