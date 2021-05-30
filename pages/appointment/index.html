@@ -72,6 +72,7 @@
                   </div>
                   <div>
                     <label for="medicSpecialuty">Especialidade médica desejada</label>
+                    <select id="medicSpecialuty"></select>
                     <input type="text" name="especialidade" id="medicSpecialty">
                   </div>
                   <div>
@@ -114,5 +115,45 @@
       
             <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
           </footer>
+
+  <script>
+    window.onload = buscaEspecialidade;
+      function buscaEspecialidade(ev) {
+        ev.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "../../src/scripts/getSpecialty/index.php",true);
+
+        xhr.onload = function () {
+          // verifica o código de status retornado pelo servidor
+          if (xhr.status != 200) {
+            console.error("Falha inesperada: " + xhr.responseText);
+            return;
+          }
+
+          // converte a string JSON para objeto JavaScript
+          var response = JSON.parse(xhr.responseText);
+
+            var campoSelect = document.getElementById("medicSpecialuty");
+
+            for (i = campoSelect.length - 1; i >= 0; i--) {
+                campoSelect.remove(i);
+            }
+
+            for (i=0; i<response.length; i++) {
+
+                especialidade = response[i];
+
+                option = document.createElement("option");
+                option.text = especialidade.nome_especialidade;
+                option.value = especialidade.nome_especialidade;
+                campoSelect.add(option);
+        }
+        };
+        xhr.onerror = function () {
+          console.error("Erro de rede - requisição não finalizada");
+        };
+        xhr.send();
+      }
+  </script>
   </body>
 </html>
