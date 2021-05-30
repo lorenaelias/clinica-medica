@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
+    <link
+      rel="shortcut icon"
+      href="../../public/icons/Logo.png"
+      type="image/png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -15,83 +19,131 @@
     <title>DevHealth | Cadastrar Endereço</title>
   </head>
   <body>
-        <header class="header">
-            <div class="header__logo">
-            <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" /></a>
-            <p>DevHealth</p>
-            </div>
-            <nav class="header__navigation">
-            <ul class="header__navigation__list">
-                <li class="header__navigation__list__item">
-                <a href="../appointment">Agendamentos</a>
-                </li>
-                <li class="header__navigation__list__item">
-                <a href="../gallery">Galeria</a>
-                </li>
-                <li class="header__navigation__list__item">
-                <a href="../address">Cadastro</a>  <!-- trocando de register para address -->
-                </li>
-                <li
-                class="header__navigation__list__item header__navigation__list__item--highlight"
-                >
-                <a href="../login">Login</a>
-                </li>
-            </ul>
-            </nav>
-        </header>
+    <header class="header">
+      <div class="header__logo">
+        <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" /></a>
+        <p>DevHealth</p>
+      </div>
+      <nav class="header__navigation">
+        <ul class="header__navigation__list">
+          <li class="header__navigation__list__item">
+            <a href="../appointment">Agendamentos</a>
+          </li>
+          <li class="header__navigation__list__item">
+            <a href="../gallery">Galeria</a>
+          </li>
+          <li class="header__navigation__list__item">
+            <a href="../address">Cadastro</a>
+            <!-- trocando de register para address -->
+          </li>
+          <li
+            class="
+              header__navigation__list__item
+              header__navigation__list__item--highlight
+            "
+          >
+            <a href="../login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-        <main class="addressContent">
-            <section class="addressContent__description">
-                <h1 class="addressContent__description__title">Cadastrar Novo Endereço</h1>
-                <p class="addressContent__description__text">
-                    Contrary to popular belief, Lorem Ipsum is not 
-                    simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
-                    making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
-                    College in Virginia, looked up one of the more obscure Latin words, consectetur, from a 
-                    Lorem Ipsum passage, and going through the cites of the word in classical literature, 
-                    discovered the undoubtable source.
-                </p>
-            </section>
-            <section class="addressContent__formContainer">
-                <h2>Para cadastrar um novo endereço preencha o campo abaixo</h2>
-                <form action="" class="addressContent__form">
-                  <div>
-                    <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="cep">
-                  </div>
-                  <div>
-                    <label for="logradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="logradouro">
-                  </div>
-                  <div>
-                    <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade" id="cidade">
-                  </div>
-                  <div>
-                    <label for="estado">Estado</label>
-                    <input type="text" name="estado" id="estado">
-                  </div>
-                  <button type="submit">Cadastrar</button>
-                </form>
-            </section>
-          
-        </main>
+    <main class="addressContent">
+      <section class="addressContent__description">
+        <h1 class="addressContent__description__title">
+          Cadastrar Novo Endereço
+        </h1>
+        <p class="addressContent__description__text">
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source.
+        </p>
+      </section>
+      <section class="addressContent__formContainer">
+        <h2>Para cadastrar um novo endereço preencha o campo abaixo</h2>
+        <form action="" class="addressContent__form">
+          <div>
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" id="cep" />
+          </div>
+          <div>
+            <label for="logradouro">Logradouro</label>
+            <input type="text" name="logradouro" id="logradouro" />
+          </div>
+          <div>
+            <label for="cidade">Cidade</label>
+            <input type="text" name="cidade" id="cidade" />
+          </div>
+          <div>
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" id="estado" />
+          </div>
+          <button type="submit" id="buttonCad">Cadastrar</button>
+        </form>
+        <div id="registerSuccess" style="display: none; background-color: rgba(20,200,100,.6);">
+          Cadastro efetuado com sucesso.
+        </div>
+        <div id="registerFail" style="display: none; background-color: rgba(200,20,20,.6);">
+          Erro no cadastro. Tente novamente.
+        </div>
+      </section>
+    </main>
 
+    <footer class="footer">
+      <hr />
+      <address>
+        <p>
+          Avenida Floriano Peixoto, 1458, Maria Rezende, Uberlândia - Minas
+          Gerais
+        </p>
+      </address>
+      <div>
+        <img src="../../public/icons/LogoWhite.png" alt="Logo" />
+      </div>
 
+      <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
+    </footer>
+    <script>
+    let botao = document.querySelector("#buttonCad");
+    botao.addEventListener('click', cadastrar);
 
-        <footer class="footer">
-            <hr />
-            <address>
-              <p>
-                Avenida Floriano Peixoto, 1458, Maria Rezende, Uberlândia - Minas
-                Gerais
-              </p>
-            </address>
-            <div>
-              <img src="../../public/icons/LogoWhite.png" alt="Logo" />
-            </div>
-      
-            <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
-          </footer>
+    function cadastrar(ev) {
+      ev.preventDefault();
+
+      let meuForm = document.querySelector("form");
+      let formData = new FormData(meuForm);
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function () {
+        if (xhr.status != 200) {
+          console.error("Falha inesperada: " + xhr.responseText);
+        }
+
+        try {
+          var response = JSON.parse(xhr.responseText);
+        } catch (e) {
+          console.error("String JSON inválida: " + xhr.responseText);
+        }
+
+        if (response == true) {
+          document.querySelector("#registerSuccess").style.display = 'block';
+        } else {
+          document.querySelector("#registerFail").style.display = 'block';
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error("Erro de rede - requisição não finalizada");
+      };
+
+      xhr.open("POST", "../../src/scripts/registerAddress/index.php", true);
+      console.log(formData);
+      xhr.send(formData);
+    }
+    </script>
   </body>
 </html>

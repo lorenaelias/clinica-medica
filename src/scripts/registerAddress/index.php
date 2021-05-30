@@ -24,14 +24,15 @@ try {
   throw new Exception('Falha na primeira inserção');
 
   $pdo->commit();
-
-  // header("Location: ../../../pages/public/registerEmployee");
-  exit();
+  $success = true;
 } 
 catch (Exception $e) {
   $pdo->rollBack();
+  $success = false;
   if ($e->errorInfo[1] === 1062)
     exit('Dados duplicados: ' . $e->getMessage());
   else
     exit('Falha ao cadastrar os dados: ' . $e->getMessage());
 }
+
+echo json_encode($success);
