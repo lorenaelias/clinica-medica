@@ -42,9 +42,9 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="listPacientes__content__list" >
-                <ul class="pacientList" >
+                <ul class="pacientList" id="patientsList">
 
-                    <li class="pacientList__item" >
+                    <!-- <li class="pacientList__item" >
                         <div class="pacientList__item__profile">
                             <div></div>
                             <p>Ilmerio Reis</p>
@@ -53,11 +53,103 @@ exitWhenNotLogged($pdo);
                         <div class="pacientList__item__contact">
                             <p>(34) 99958-4525</p>
                         </div>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
         </div>
+
+        <script>
+            window.onload = buscaPacientes;
+            
+
+            function buscaPacientes(){
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "../../src/scripts/getPatients/index.php", true);
+                xhr.send();
+
+                xhr.onload = function () {
+
+                    if (xhr.status != 200){
+                        console.log("Erro!");
+                    }
+
+                    var response = JSON.parse(xhr.responseText);
+
+                    let pacientes = document.querySelector("#patientsList");
+                    
+                    for (i = pacientes.length - 1; i >= 0; i--) {
+                        pacientes.remove(i);
+                    }
+
+                    for (i=0; i<response.length; i++) {
+                    
+                        paciente = response[i];
+  
+                        const novoLi = document.createElement("li");
+                        const novaDiv = document.createElement("div");
+                        const novaDiv1 = document.createElement("div");
+                        const novaDiv2 = document.createElement("div"); 
+
+                        const nome = document.createElement("p");
+                        paciente.textContent = paciente.nome;
+
+                        const email = document.createElement("p");
+                        email.textContent = paciente.email;
+
+                        const telefone = document.createElement("p");
+                        telefone.textContent = paciente.telefone;
+
+                        const logradouro = document.createElement("p");
+                        logradouro.textContent = paciente.logradouro;
+
+                        const cidade = document.createElement("p"); 
+                        cidade.textContent = paciente.cidade;
+
+                        const estado = document.createElement("p"); 
+                        estado.textContent = paciente.estado;
+
+                        const cep = document.createElement("p"); 
+                        cep.textContent = paciente.cep;
+
+                        const peso = document.createElement("p"); 
+                        peso.textContent = paciente.peso;
+
+                        const altura = document.createElement("p"); 
+                        altura.textContent = paciente.altura;
+
+                        const tiposanguineo = document.createElement("span"); 
+                        tiposanguineo.textContent = paciente.tiposanguineo;
+
+                        novaDiv1.appendChild(novaDiv);
+                        novaDiv1.appendChild(nome);
+                        novaDiv1.appendChild(tiposanguineo);
+                        novaDiv1.appendChild(peso);
+                        novaDiv1.appendChild(altura);
+
+                        novaDiv1.classList.add("pacientList__item__profile");  
+                        
+                        novaDiv2.appendChild(email);
+                        novaDiv2.appendChild(telefone);
+                        novaDiv2.appendChild(logradouro);
+                        novaDiv2.appendChild(cidade);
+                        novaDiv2.appendChild(estado);
+                        novaDiv2.appendChild(cep);
+                      
+                        novaDiv2.classList.add("pacientList__item__contact");           
+                        
+                        novoLi.appendChild(novaDiv1);
+                        novoLi.appendChild(novaDiv2);
+                        novoLi.classList.add("pacientList__item");  
+
+                        pacientes.appendChild(novoLi);
+                    }   
+                    
+                }
+            }
+        </script>
 
         <script>
           function ifMedico() {

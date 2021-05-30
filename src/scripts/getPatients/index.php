@@ -7,7 +7,7 @@ try {
 
   $sql = <<<SQL
     SELECT nome, sexo, email, telefone, cep, logradouro, cidade, estado, peso, altura, tiposanguineo
-    FROM PESSOA_TF INNER JOIN PACIENTE_TF 
+    FROM PESSOA_TF INNER JOIN PACIENTE_TF
     ON PESSOA_TF.codigo = PACIENTE_TF.codigo
   SQL;
 
@@ -18,10 +18,10 @@ try {
 
 class Paciente
 {
-    public $nome;
-    public $sexo;
-    public $email;
-    public $telefone;
+  public $nome;
+  public $sexo;
+  public $email;
+  public $telefone;
 
   public $logradouro;
   public $estado;
@@ -54,6 +54,6 @@ $stmt->execute();
 
 $pacientes = array();
 while ($row = $stmt->fetch()) {
-  array_push($pacientes, new Endereco($row['nome'], $row['sexo'], $row['email'], $row['telefone'], $row['logradouro'], $row['estado'], $row['cidade'], $row['cep'], $row['peso'], $row['altura'], $row['tiposanguineo']));
+  array_push($pacientes, new Paciente($row['nome'], $row['sexo'], $row['email'], $row['telefone'], $row['logradouro'], $row['estado'], $row['cidade'], $row['cep'], $row['peso'], $row['altura'], $row['tiposanguineo']));
 }
 echo json_encode($pacientes);
