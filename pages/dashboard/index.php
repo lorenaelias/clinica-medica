@@ -25,15 +25,15 @@ exitWhenNotLogged($pdo);
   <body class="dashboard__container" onload="ifMedico();">
         <aside class="dashboard__aside">
             <nav class="dashboard__aside__icons">
-                <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home" /></a>
-                <a href="../cad_funcionario/index.html"><img src="../../public/icons/heart.png" alt="heart" /></a>
-                <a href="../cad_paciente/index.html"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
-                <a href="../list_pacientes/index.html"><img src="../../public/icons/painel.png" alt="painel" /></a>
-                <a href="../list_funcionarios/index.html"><img src="../../public/icons/group.png" alt="group" /></a>
-                <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
-                <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
+                <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
+                <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" /></a>
+                <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
+                <a href="../list_pacientes"><img src="../../public/icons/painel.png" alt="painel" /></a>
+                <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" /></a>
+                <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
+                <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
                 
-                <a href="../list_meus_agendamentos/index.html" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
+                <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
                 
                 <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
             </nav>
