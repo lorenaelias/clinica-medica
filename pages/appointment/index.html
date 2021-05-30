@@ -73,11 +73,10 @@
                   <div>
                     <label for="medicSpecialuty">Especialidade médica desejada</label>
                     <select id="medicSpecialuty"></select>
-                    <input type="text" name="especialidade" id="medicSpecialty">
                   </div>
                   <div>
                     <label for="medicName">Nome do médico especialista</label>
-                    <input type="text" name="nomeMedico" id="medicName">
+                    <select id="medicName"></select>
                   </div>
                   <div>
                     <label for="appointmentDate">Data da consulta</label>
@@ -146,6 +145,53 @@
                 option = document.createElement("option");
                 option.text = especialidade.nome_especialidade;
                 option.value = especialidade.nome_especialidade;
+                campoSelect.add(option);
+        }
+        };
+        xhr.onerror = function () {
+          console.error("Erro de rede - requisição não finalizada");
+        };
+        xhr.send();
+      }
+
+      window.onload = function () {
+        const especialidade = document.querySelector("#medicSpecialuty");
+        especialidade.addEventListener("change", buscaMedico);
+      };
+      function buscaMedico(ev) {
+        ev.preventDefault();
+        const especialidade_medico = document.querySelector("#medicSpecialuty");
+        let xhr = new XMLHttpRequest();
+        xhr.open(
+          "GET",
+          "../../src/scripts/getMedic/index.php?especialidade_medico=" +
+            especialidade_medico.value,
+          true
+        );
+
+        xhr.onload = function () {
+          // verifica o código de status retornado pelo servidor
+          if (xhr.status != 200) {
+            console.error("Falha inesperada: " + xhr.responseText);
+            return;
+          }
+
+          // converte a string JSON para objeto JavaScript
+          var response = JSON.parse(xhr.responseText);
+
+            var campoSelect = document.getElementById("medicName");
+
+            for (i = campoSelect.length - 1; i >= 0; i--) {
+                campoSelect.remove(i);
+            }
+
+            for (i=0; i<response.length; i++) {
+
+                medico = response[i];
+
+                option = document.createElement("option");
+                option.text = medico.nome_medico;
+                option.value = medico.nome_medico;
                 campoSelect.add(option);
         }
         };

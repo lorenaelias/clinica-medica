@@ -14,20 +14,21 @@ if (isset($_POST["dataConsulta"])) $dataConsulta = $_POST["dataConsulta"];
 if (isset($_POST["horarioConsulta"])) $horarioConsulta = $_POST["horarioConsulta"];
 
 $sql1 = <<<SQL
-  INSERT INTO ENDERECO_TF (nome, email, sexo, especialidadeMedica, nomeMedico, dataConsulta, horarioConsulta)
-  VALUES (?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO AGENDA_TF (nome, email, sexo, codigoMedico, dataAgenda, horario)
+  VALUES (?, ?, ?, ?, ?, ?)
   SQL;
+
+
 
 try {
   $pdo->beginTransaction();
 
   $stmt1 = $pdo->prepare($sql1);
-  if (!$stmt1->execute([ $nome, $email, $sexo, $especialidadeMedica $nomeMedico, $dataConsulta, $horarioConsulta])) 
+  if (!$stmt1->execute([ $nome, $email, $sexo, $codigoMedico, $dataConsulta, $horarioConsulta])) 
   throw new Exception('Falha na primeira inserção');
 
   $pdo->commit();
 
-  // header("Location: ../../../pages/public/registerEmployee");
   exit();
 } 
 catch (Exception $e) {
