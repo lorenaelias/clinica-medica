@@ -41,12 +41,18 @@ exitWhenNotLogged($pdo);
                 <h1>Listagem de Endereços</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listEnderecos__content__list" >
-                <ul class="enderecosList" id="enderecoList">
-                </ul>
+
+            <div class="tableContainer">
+                <table class="listTable" id="enderecoList">
+                    <tr class="listTable__header">
+                    <th>Logradouro</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>CEP</th>
+                    </tr>
+                </table>
             </div>
         </div>
-
 
         <script>
             window.onload = buscaEnderecos;
@@ -77,27 +83,27 @@ exitWhenNotLogged($pdo);
                     
                         endereco = response[i];
   
-                        const novoLi = document.createElement("li");  
+                        const novotr = document.createElement("tr");  
 
-                        const logradouro = document.createElement("p");
+                        const logradouro = document.createElement("td");
                         logradouro.textContent = endereco.logradouro;
 
-                        const cidade = document.createElement("p"); 
+                        const cidade = document.createElement("td"); 
                         cidade.textContent = endereco.cidade;
 
-                        const estado = document.createElement("p"); 
+                        const estado = document.createElement("td"); 
                         estado.textContent = endereco.estado;
 
-                        const cep = document.createElement("p"); 
+                        const cep = document.createElement("td"); 
                         cep.textContent = endereco.cep;
 
-                        novoLi.appendChild(logradouro);
-                        novoLi.appendChild(cidade);
-                        novoLi.appendChild(estado);
-                        novoLi.appendChild(cep);   
-                        novoLi.classList.add("enderecosList__item");           
+                        novotr.appendChild(logradouro);
+                        novotr.appendChild(cidade);
+                        novotr.appendChild(estado);
+                        novotr.appendChild(cep);   
+                        novotr.classList.add("listTable__item");           
                         
-                        enderecos.appendChild(novoLi);
+                        enderecos.appendChild(novotr);
                     }   
                     
                 }
