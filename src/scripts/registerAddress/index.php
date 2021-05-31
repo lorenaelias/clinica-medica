@@ -17,17 +17,13 @@ $sql1 = <<<SQL
   SQL;
 
 try {
-  $pdo->beginTransaction();
-
   $stmt1 = $pdo->prepare($sql1);
-  if (!$stmt1->execute([ $cep, $logradouro, $cidade, $estado])) 
-  throw new Exception('Falha na primeira inserção');
+  $stmt1->execute([ $cep, $logradouro, $cidade, $estado]);
 
-  $pdo->commit();
   $success = true;
 } 
 catch (Exception $e) {
-  $pdo->rollBack();
+
   $success = false;
   if ($e->errorInfo[1] === 1062)
     exit('Dados duplicados: ' . $e->getMessage());
