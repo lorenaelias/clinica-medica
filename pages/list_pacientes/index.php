@@ -22,9 +22,9 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_pacientes.css" />
     <title>DevHealth | Listar Pacientes</title>
   </head>
-  <body class="listPacientes__container" onload="ifMedico();">
+  <body class="listPacientes__container" onload="ifMedico();buscaPacientes();">
         <aside class="listPacientes__aside">
-            <nav class="listPacientes__aside__icons">
+            <nav class="listPacientes__aside__icons" >
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
                 <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" /></a>
                 <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
@@ -63,8 +63,6 @@ exitWhenNotLogged($pdo);
         </div>
 
         <script>
-            window.onload = buscaPacientes;
-            
 
             function buscaPacientes(){
 
@@ -143,9 +141,7 @@ exitWhenNotLogged($pdo);
                     
                 }
             }
-        </script>
 
-        <script>
           function ifMedico() {
 
             var xhr = new XMLHttpRequest();

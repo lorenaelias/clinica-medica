@@ -26,7 +26,7 @@ SQL;
 
 try {
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$_SESSION['cod']]);
+    $stmt->execute([$_SESSION['codigo']]);
     $row = $stmt->fetch();
 
     if ($row)

@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_agendamentos.css" />
     <title>DevHealth | Listar Agendamentos</title>
   </head>
-  <body class="listAgendamentos__container" onload="ifMedico();">
+  <body class="listAgendamentos__container" onload="ifMedico(); buscaAgendamentos();">
         <aside class="listAgendamentos__aside">
             <nav class="listAgendamentos__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -41,24 +41,25 @@ exitWhenNotLogged($pdo);
                 <h1>Listagem de Agendamentos</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listAgendamentos__content__list" >
-                <ul class="agendamentosList" id="agendamentosList">
-
-                    <li class="agendamentosList__item" >
-                        <p>Ricardo Zamboni Silva</p>
-                        <p>25/04</p>
-                        <p>12:00h</p>
-                        <p>med158847</p>
-                    </li>
-
-                </ul>
+            <div class="tableContainer">
+                <table class="listTable" id="appointmentsList">
+                    <tr class="listTable__header" >
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Médico(a)</th>
+                    </tr>
+                    <tr class="listTable__item" >
+                        <td>Ricardo Zamboni Silva</td>
+                        <td>25/04</td>
+                        <td>12:00h</td>
+                        <td>Dr. Guilianno Paes - Cardiologista</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
         <script>
-            window.onload = buscaAgendamentos;
-            
-
             function buscaAgendamentos(){
 
                 var xhr = new XMLHttpRequest();

@@ -1,7 +1,6 @@
 <?php
 require_once "../../../conexaoMysql.php";
 require_once "../../src/scripts/autenticacao.php";
-require_once "../../src/scripts/autenticacao.php";
 
 session_start();
 $pdo = mysqlConnect();
@@ -23,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_meus_agendamentos.css" />
     <title>DevHealth | Listar Meus Agendamentos</title>
   </head>
-  <body class="listMeusAgendamentos__container" onload="ifMedico();">
+  <body class="listMeusAgendamentos__container">
         <aside class="listMeusAgendamentos__aside">
             <nav class="listMeusAgendamentos__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -42,17 +41,21 @@ exitWhenNotLogged($pdo);
                 <h1>Listagem dos Meus Agendamentos</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listMeusAgendamentos__content__list" >
-                <ul class="meusAgendamentosList" >
-
-                    <li class="meusAgendamentosList__item" >
-                        <p>Lorena Silva</p>
-                        <p>18/06</p>
-                        <p>10:00h</p>
-                        <p>med156647</p>
-                    </li>
-
-                </ul>
+            <div class="tableContainer">
+                <table class="listTable" >
+                    <tr class="listTable__header" >
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Médico(a)</th>
+                    </tr>
+                    <tr class="listTable__item" >
+                        <td>Lorena Silva</td>
+                        <td>18/05</td>
+                        <td>10:00h</td>
+                        <td>Dr. Francisco Lemes - Pediatra</td>
+                    </tr>
+                </table>
             </div>
         </div>
   </body>

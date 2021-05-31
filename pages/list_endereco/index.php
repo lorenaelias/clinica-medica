@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_enderecos.css" />
     <title>DevHealth | Listar Endereços</title>
   </head>
-  <body class="listEnderecos__container" onload="ifMedico();">
+  <body class="listEnderecos__container" onload="ifMedico(); buscaEnderecos();">
         <aside class="listEnderecos__aside">
             <nav class="listEnderecos__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -55,9 +55,6 @@ exitWhenNotLogged($pdo);
         </div>
 
         <script>
-            window.onload = buscaEnderecos;
-            
-
             function buscaEnderecos(){
 
                 var xhr = new XMLHttpRequest();
