@@ -172,6 +172,13 @@ exitWhenNotLogged($pdo);
       inputCep.onkeyup = () => buscaEndereco(inputCep.value);
     }
 
+    function limparCampos() {
+      let campos = document.querySelectorAll('input');
+      for (let i = 0; i < campos.length; i++) {
+        campos[i].value = '';
+      }
+    }
+
     let botao = document.querySelector("#buttonCad");
     botao.addEventListener('click', validar);
 
@@ -195,9 +202,14 @@ exitWhenNotLogged($pdo);
 
         if (response == true) {
           document.querySelector("#registerSuccess").style.display = 'block';
+          limparCampos();
         } else {
           document.querySelector("#registerFail").style.display = 'block';
         }
+        setTimeout(() => {
+          document.querySelector("#registerSuccess").style.display = 'none';
+          document.querySelector("#registerFail").style.display = 'none';
+        }, 3000);
       };
 
       xhr.onerror = function () {
