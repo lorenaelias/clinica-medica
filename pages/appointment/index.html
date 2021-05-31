@@ -54,7 +54,7 @@
             </section>
             <section class="appointmentContent__formContainer">
                 <h2>Para marcar uma nova consulta preencha o campo abaixo</h2>
-                <form action="../../scripts/registerAppointment" class="appointmentContent__form">
+                <form class="appointmentContent__form">
                   <div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nomePaciente" id="nome">
@@ -268,6 +268,13 @@
     }
 
 
+    function limparCampos() {
+      let campos = document.querySelectorAll('input');
+      for (let i = 0; i < campos.length; i++) {
+        campos[i].value = '';
+      }
+    }
+
     let botao = document.querySelector("#buttonCad");
     botao.addEventListener('click', validar);
 
@@ -291,9 +298,14 @@
 
         if (response == true) {
           document.querySelector("#registerSuccess").style.display = 'block';
+          limparCampos();
         } else {
           document.querySelector("#registerFail").style.display = 'block';
         }
+        setTimeout(() => {
+          document.querySelector("#registerSuccess").style.display = 'none';
+          document.querySelector("#registerFail").style.display = 'none';
+        }, 3000);
       };
 
       xhr.onerror = function () {
@@ -301,7 +313,6 @@
       };
 
       xhr.open("POST", "../../src/scripts/registerAppointment/index.php", true);
-      console.log(formData);
       xhr.send(formData);
     }
   </script>
