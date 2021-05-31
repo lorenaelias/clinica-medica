@@ -78,3 +78,30 @@
     margin-top: 1rem;
 }
 
+
+.tableContainer {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.listTable {
+    text-align: left;
+    width: 100%;
+
+}
+
+.listTable__header {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.listTable__item {
+    font-size: 1.4rem;
+
+    background: var(--white);
+    border-radius: 5px;
+}
+
+.listTable__item td {
+    padding: 1.5rem 2rem;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/list_funcionarios.css" />
+    <title>DevHealth | Listar Funcionários</title>
+  </head>
+  <body class="listFuncionarios__container">
+        <aside class="listFuncionarios__aside">
+            <nav class="listFuncionarios__aside__icons">
+                <a href="../dashboard/index.html"><img src="../../public/icons/home.png" alt="home"/></a>
+                <a href="../cad_funcionario/index.html"><img src="../../public/icons/heart.png" alt="heart"/></a>
+                <a href="../cad_paciente/index.html"><img src="../../public/icons/peoples.png" alt="peoples"/></a>
+                <a href="../list_pacientes/index.html"><img src="../../public/icons/painel.png" alt="painel"/></a>
+                <a href="../list_funcionarios/index.html"><img src="../../public/icons/group.png" alt="group"/></a>
+                <a href="../list_endereco/index.html"><img src="../../public/icons/marker.png" alt="marker"/></a>
+                <a href="../list_agendamentos/index.html"><img src="../../public/icons/calendar.png" alt="calendar"/></a>
+                <a href="../list_meus_agendamentos/index.html"><img src="../../public/icons/note.png" alt="note" /></a>
+                <a href=".."><img src="../../public/icons/logout.png" alt="logout"/></a>
+            </nav>
+        </aside>
+        <div class="listFuncionarios__content">
+            <div class="listFuncionarios__content__header">
+                <h1>Listagem de Funcionários</h1>
+                <h2>Terça, 14 de janeiro 2021</h2>
+            </div>
+            <div class="tableContainer">
+                <table  class="listTable">
+                    <tr class="listTable__header" >
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>É médico ?</th>
+                        <th>CRM</th>
+                        <th>Especialidade</th>
+                    </tr>
+                    <tr class="listTable__item" >
+                        <td>Ilmerio Reis</td>
+                        <td>Ilmerio@ufu.com.br</td>
+                        <td>99498-7812</td>
+                        <td>Não</td>
+                        <td>Não possui</td>
+                        <td>Não possui</td>
+                    </tr>
+                    <tr class="listTable__item" >
+                        <td>Victor Hugo</td>
+                        <td>Vitin@email.com.br</td>
+                        <td>991238-5612</td>
+                        <td>Sim</td>
+                        <td>3711</td>
+                        <td>Pediatria</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+  </body>
+</html>
