@@ -41,20 +41,25 @@ exitWhenNotLogged($pdo);
                 <h1>Listagem de Funcionários</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listFuncionarios__content__list" >
-                <ul class="funcionariosList" >
-
-                    <li class="funcionariosList__item" >
-                        <div class="funcionariosList__item__profile">
-                            <div></div>
-                            <p>Daniel Furado</p>
-                        </div>
-                        <div class="funcionariosList__item__code">
-                            <p>enf152024</p>
-                        </div>
-                    </li>
-
-                </ul>
+            <div class="tableContainer">
+                <table  class="listTable">
+                    <tr class="listTable__header" >
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>É médico ?</th>
+                        <th>CRM</th>
+                        <th>Especialidade</th>
+                    </tr>
+                    <tr class="listTable__item" >
+                        <td>Ilmerio Reis</td>
+                        <td>Ilmerio@ufu.com.br</td>
+                        <td>99498-7812</td>
+                        <td>Não</td>
+                        <td>Não possui</td>
+                        <td>Não possui</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
