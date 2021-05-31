@@ -41,21 +41,24 @@ exitWhenNotLogged($pdo);
                 <h1>Listagem de Pacientes</h1>
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
-            <div class="listPacientes__content__list" >
-                <ul class="pacientList" id="patientsList">
 
-                    <!-- <li class="pacientList__item" >
-                        <div class="pacientList__item__profile">
-                            <div></div>
-                            <p>Ilmerio Reis</p>
-                            <span>A+</span>
-                        </div>
-                        <div class="pacientList__item__contact">
-                            <p>(34) 99958-4525</p>
-                        </div>
-                    </li> -->
+            <div class="tableContainer" >
+                <table class="listTable" id="patientsList">
+                    <tr class="listTable__header" >
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
 
-                </ul>
+                        <th>Tipo Sang.</th>
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        
+                        <th>Logradouro</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Cep</th>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -88,63 +91,54 @@ exitWhenNotLogged($pdo);
                     
                         paciente = response[i];
   
-                        const novoLi = document.createElement("li");
-                        const novaDiv = document.createElement("div");
-                        const novaDiv1 = document.createElement("div");
-                        const novaDiv2 = document.createElement("div"); 
+                        const novatr = document.createElement("tr");
 
-                        const nome = document.createElement("p");
-                        paciente.textContent = paciente.nome;
+                        const nome = document.createElement("td");
+                        nome.textContent = paciente.nome;
 
-                        const email = document.createElement("p");
+                        const email = document.createElement("td");
                         email.textContent = paciente.email;
 
-                        const telefone = document.createElement("p");
+                        const telefone = document.createElement("td");
                         telefone.textContent = paciente.telefone;
 
-                        const logradouro = document.createElement("p");
-                        logradouro.textContent = paciente.logradouro;
-
-                        const cidade = document.createElement("p"); 
-                        cidade.textContent = paciente.cidade;
-
-                        const estado = document.createElement("p"); 
-                        estado.textContent = paciente.estado;
-
-                        const cep = document.createElement("p"); 
-                        cep.textContent = paciente.cep;
-
-                        const peso = document.createElement("p"); 
-                        peso.textContent = paciente.peso;
-
-                        const altura = document.createElement("p"); 
-                        altura.textContent = paciente.altura;
-
-                        const tiposanguineo = document.createElement("span"); 
+                        const tiposanguineo = document.createElement("td"); 
                         tiposanguineo.textContent = paciente.tiposanguineo;
 
-                        novaDiv1.appendChild(novaDiv);
-                        novaDiv1.appendChild(nome);
-                        novaDiv1.appendChild(tiposanguineo);
-                        novaDiv1.appendChild(peso);
-                        novaDiv1.appendChild(altura);
+                        const peso = document.createElement("td"); 
+                        peso.textContent = paciente.peso;
 
-                        novaDiv1.classList.add("pacientList__item__profile");  
-                        
-                        novaDiv2.appendChild(email);
-                        novaDiv2.appendChild(telefone);
-                        novaDiv2.appendChild(logradouro);
-                        novaDiv2.appendChild(cidade);
-                        novaDiv2.appendChild(estado);
-                        novaDiv2.appendChild(cep);
-                      
-                        novaDiv2.classList.add("pacientList__item__contact");           
-                        
-                        novoLi.appendChild(novaDiv1);
-                        novoLi.appendChild(novaDiv2);
-                        novoLi.classList.add("pacientList__item");  
+                        const altura = document.createElement("td"); 
+                        altura.textContent = paciente.altura;
 
-                        pacientes.appendChild(novoLi);
+                        const logradouro = document.createElement("td");
+                        logradouro.textContent = paciente.logradouro;
+
+                        const cidade = document.createElement("td"); 
+                        cidade.textContent = paciente.cidade;
+
+                        const estado = document.createElement("td"); 
+                        estado.textContent = paciente.estado;
+
+                        const cep = document.createElement("td"); 
+                        cep.textContent = paciente.cep;
+
+                        novatr.appendChild(nome);
+                        novatr.appendChild(email);
+                        novatr.appendChild(telefone);
+
+                        novatr.appendChild(tiposanguineo);
+                        novatr.appendChild(peso);
+                        novatr.appendChild(altura);
+                        
+                        novatr.appendChild(logradouro);
+                        novatr.appendChild(cidade);
+                        novatr.appendChild(estado);
+                        novatr.appendChild(cep);
+             
+                        novatr.classList.add("listTable__item");  
+
+                        pacientes.appendChild(novatr);
                     }   
                     
                 }
