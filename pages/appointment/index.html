@@ -76,7 +76,7 @@
                   </div>
                   <div>
                     <label for="medicName">Nome do médico especialista</label>
-                    <select id="medicName"></select>
+                    <select id="medicName" name="medicName"></select>
                   </div>
                   <div>
                     <label for="appointmentDate">Data da consulta</label>
@@ -97,8 +97,14 @@
                         <option value="17">17h - 18h</option>
                     </select>
                   </div>
-                  <button type="submit">Agendar</button>
+                  <button type="submit" id="buttonCad">Agendar</button>
                 </form>
+                <div id="registerSuccess" style="display: none; background-color: rgba(20,200,100,.6);">
+                  Cadastro efetuado com sucesso.
+                </div>
+                <div id="registerFail" style="display: none; background-color: rgba(200,20,20,.6);">
+                  Erro no cadastro. Tente novamente.
+                </div>
             </section>
           
         </main>
@@ -259,6 +265,44 @@
         console.error("Erro de rede - requisição não finalizada");
       };
       xhr.send();
+    }
+
+
+    let botao = document.querySelector("#buttonCad");
+    botao.addEventListener('click', validar);
+
+    function validar(ev) {
+      ev.preventDefault();
+
+      let meuForm = document.querySelector("form");
+      let formData = new FormData(meuForm);
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = function () {
+        if (xhr.status != 200) {
+          console.error("Falha inesperada: " + xhr.responseText);
+        }
+
+        try {
+          var response = JSON.parse(xhr.responseText);
+        } catch (e) {
+          console.error("String JSON inválida: " + xhr.responseText);
+        }
+
+        if (response == true) {
+          document.querySelector("#registerSuccess").style.display = 'block';
+        } else {
+          document.querySelector("#registerFail").style.display = 'block';
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error("Erro de rede - requisição não finalizada");
+      };
+
+      xhr.open("POST", "../../src/scripts/registerAppointment/index.php", true);
+      console.log(formData);
+      xhr.send(formData);
     }
   </script>
 </body>
