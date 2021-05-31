@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_meus_agendamentos.css" />
     <title>DevHealth | Listar Meus Agendamentos</title>
   </head>
-  <body class="listMeusAgendamentos__container">
+  <body class="listMeusAgendamentos__container" onload="buscaMeusAgendamentos();">
         <aside class="listMeusAgendamentos__aside">
             <nav class="listMeusAgendamentos__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -42,21 +42,73 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="tableContainer">
-                <table class="listTable" >
+                <table class="listTable" id="listAgendamentos">
                     <tr class="listTable__header" >
                         <th>Nome</th>
+                        <th>Email</th>
+                        <th>Sexo</th>
                         <th>Data</th>
                         <th>Horário</th>
-                        <th>Médico(a)</th>
-                    </tr>
-                    <tr class="listTable__item" >
-                        <td>Lorena Silva</td>
-                        <td>18/05</td>
-                        <td>10:00h</td>
-                        <td>Dr. Francisco Lemes - Pediatra</td>
                     </tr>
                 </table>
             </div>
         </div>
+
+        <script>
+            function buscaMeusAgendamentos(){
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("GET", "../../src/scripts/getMyAppointments/index.php", true);
+                xhr.send();
+
+                xhr.onload = function () {
+
+                    if (xhr.status != 200){
+                        console.log("Erro!");
+                    }
+
+                    var response = JSON.parse(xhr.responseText);
+
+                    let agendamentos = document.querySelector("#listAgendamentos");
+                    
+                    for (i = agendamentos.length - 1; i >= 0; i--) {
+                        agendamentos.remove(i);
+                    }
+
+                    for (i=0; i<response.length; i++) {
+                    
+                        agendamento = response[i];
+  
+                        const novotr = document.createElement("tr");  
+
+                        const nome = document.createElement("td");
+                        nome.textContent = agendamento.nome;
+
+                        const email = document.createElement("td"); 
+                        email.textContent = agendamento.email;
+
+                        const sexo = document.createElement("td"); 
+                        sexo.textContent = agendamento.sexo;
+
+                        const data = document.createElement("td"); 
+                        data.textContent = agendamento.data;
+
+                        const horario = document.createElement("td"); 
+                        horario.textContent = agendamento.horario + "h";
+
+                        novotr.appendChild(nome);
+                        novotr.appendChild(email);
+                        novotr.appendChild(sexo);
+                        novotr.appendChild(data);   
+                        novotr.appendChild(horario);
+                        novotr.classList.add("listTable__item");           
+                        
+                        agendamentos.appendChild(novotr);
+                    }   
+                    
+                }
+            }
+        </script>
   </body>
 </html>
