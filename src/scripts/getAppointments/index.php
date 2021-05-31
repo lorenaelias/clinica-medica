@@ -1,7 +1,11 @@
 <?php
 
 require "../../../../conexaoMysql.php";
+require_once "../autenticacao.php";
+
+session_start();
 $pdo = mysqlConnect();
+exitWhenNotLogged($pdo);
 
 try {
 
