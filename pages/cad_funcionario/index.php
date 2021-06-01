@@ -63,7 +63,7 @@ exitWhenNotLogged($pdo);
         </div>
         <div class="col-sm-5">
           <label class="form-label" for="cep">CEP (Ex. 38400-100)</label class="form-label">
-          <input class="form-control" type="text" name="cep" id="cep" maxlength="9">
+          <input class="form-control" type="text" name="cep" id="cep" maxlength="10">
         </div>
         <div class="col-sm-4">
           <label class="form-label" for="logradouro">Logradouro</label class="form-label">
@@ -222,7 +222,6 @@ exitWhenNotLogged($pdo);
       };
 
       xhr.open("POST", "../../src/scripts/registerEmployee/index.php", true);
-      console.log(formData);
       xhr.send(formData);
     }
   </script>

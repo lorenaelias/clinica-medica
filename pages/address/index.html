@@ -68,7 +68,7 @@
         <form class="addressContent__form">
           <div>
             <label for="cep">CEP (Ex. 38400-100)</label>
-            <input type="text" name="cep" id="cep" minlength="9" maxlength="9" required>
+            <input type="text" name="cep" id="cep" minlength="10" maxlength="10" required>
           </div>
           <div>
             <label for="logradouro">Logradouro</label>
@@ -154,7 +154,6 @@
       };
 
       xhr.open("POST", "../../src/scripts/registerAddress/index.php", true);
-      console.log(formData);
       xhr.send(formData);
     }
     </script>
