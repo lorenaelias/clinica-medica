@@ -43,17 +43,12 @@ exitWhenNotLogged($pdo);
             </div>
             <div class="tableContainer">
                 <table class="listTable" id="appointmentsList">
-                    <tr class="listTable__header" >
+                    <tr class="listTable__header" id="agendamentosLista" >
                         <th>Nome</th>
                         <th>Data</th>
                         <th>Horário</th>
                         <th>Médico(a)</th>
                     </tr>
-                    <tr class="listTable__item" >
-                        <td>Ricardo Zamboni Silva</td>
-                        <td>25/04</td>
-                        <td>12:00h</td>
-                        <td>Dr. Guilianno Paes - Cardiologista</td>
                     </tr>
                 </table>
             </div>
@@ -75,7 +70,7 @@ exitWhenNotLogged($pdo);
 
                     var response = JSON.parse(xhr.responseText);
 
-                    let agendamentos = document.querySelector("#appointmentsList");
+                    let agendamentos = document.querySelector("#agendamentosLista");
                     
                     for (i = agendamentos.length - 1; i >= 0; i--) {
                         agendamentos.remove(i);
@@ -90,27 +85,20 @@ exitWhenNotLogged($pdo);
                         const nome = document.createElement("p");
                         nome.textContent = agendamento.nome;
 
-                        const email = document.createElement("p"); 
-                        email.textContent = agendamento.email;
-
-                        const sexo = document.createElement("p"); 
-                        sexo.textContent = agendamento.sexo;
-
-                        const especialidade = document.createElement("p"); 
-                        especialidade.textContent = agendamento.especialidade;
-
-                        const data = document.createElement("p"); 
-                        data.textContent = agendamento.data;
+                        const dataAgenda = document.createElement("p"); 
+                        dataAgenda.textContent = agendamento.dataAgenda;
 
                         const horario = document.createElement("p"); 
                         horario.textContent = agendamento.horario;
 
+                        const especialidade = document.createElement("p"); 
+                        especialidade.textContent = agendamento.especialidade;
+
+                        
                         novoLi.appendChild(nome);
-                        novoLi.appendChild(email);
-                        novoLi.appendChild(sexo);
-                        novoLi.appendChild(especialidade);
-                        novoLi.appendChild(data);   
-                        novoLi.appendChild(horario);   
+                        novoLi.appendChild(dataAgenda);
+                        novoLi.appendChild(horario);
+                        novoLi.appendChild(especialidade); 
                         novoLi.classList.add("agendamentosList__item");           
                         
                         agendamentos.appendChild(novoLi);
