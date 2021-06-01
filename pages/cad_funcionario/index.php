@@ -62,7 +62,7 @@ exitWhenNotLogged($pdo);
         </div>
         <div>
           <label for="cep">CEP (Ex. 38400-100)</label>
-          <input type="text" name="cep" id="cep">
+          <input type="text" name="cep" id="cep" maxlength="9">
         </div>
         <div>
           <label for="logradouro">Logradouro</label>
