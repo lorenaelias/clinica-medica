@@ -3,11 +3,6 @@
 require "../../../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
-$nome = $sexo = $email = $telefone = "";
-$cep = $logradouro = $cidade = $estado = "";
-$iniContrato = $salario = $senha = "";
-$medico = $especialidade = $crm = "";
-
 if (isset($_POST["nome"])) $nome = $_POST["nome"];
 if (isset($_POST["sexo"])) $sexo = $_POST["sexo"];
 if (isset($_POST["email"])) $email = $_POST["email"];
@@ -46,30 +41,37 @@ $sql3 = <<<SQL
   SQL;
 
 try {
-  $pdo->beginTransaction();
-
-  $stmt1 = $pdo->prepare($sql1);
-  if (!$stmt1->execute([
-    $nome, $sexo, $email, $telefone, 
-    $cep, $logradouro, $cidade, $estado
-  ])) throw new Exception('Falha na primeira inserção');
-
-  $idNovoFuncionario = $pdo->lastInsertId();
-
-  $stmt2 = $pdo->prepare($sql2);
-  if (!$stmt2->execute([
-    $idNovoFuncionario, $iniContrato, $salario, $senhaHash
-  ])) throw new Exception('Falha na segunda inserção');
-
-  if($medico == "true") {
-    $stmt3 = $pdo->prepare($sql3);
-    if (!$stmt3->execute([
-        $idNovoFuncionario, $especialidade, $crm
-    ])) throw new Exception('Falha na terceira inserção');
+  if( $nome == "" || $email == "" || $sexo == "" || $telefone == "" || $cep == "" || $logradouro == "" || $cidade == "" || $estado == "" || $iniContrato == "" || $salario = "" || $senha == ""){
+    $success = false;
   }
+  else if ( $medico == "true" && ($crm == "" || $especialidade == "") ) {
+    $success = false;
+  } else {
+    $pdo->beginTransaction();
 
-  $pdo->commit();
-  $success = true;
+    $stmt1 = $pdo->prepare($sql1);
+    if (!$stmt1->execute([
+      $nome, $sexo, $email, $telefone, 
+      $cep, $logradouro, $cidade, $estado
+    ])) throw new Exception('Falha na primeira inserção');
+
+    $idNovoFuncionario = $pdo->lastInsertId();
+
+    $stmt2 = $pdo->prepare($sql2);
+    if (!$stmt2->execute([
+      $idNovoFuncionario, $iniContrato, $salario, $senhaHash
+    ])) throw new Exception('Falha na segunda inserção');
+
+    if($medico == "true") {
+      $stmt3 = $pdo->prepare($sql3);
+      if (!$stmt3->execute([
+          $idNovoFuncionario, $especialidade, $crm
+      ])) throw new Exception('Falha na terceira inserção');
+    }
+
+    $pdo->commit();
+    $success = true;
+  }
 } 
 catch (Exception $e) {
   $pdo->rollBack();
