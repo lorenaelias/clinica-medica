@@ -58,7 +58,7 @@ exitWhenNotLogged($pdo);
         </div>
         <div>
           <label for="telefone">Telefone</label>
-          <input type="text" name="telefone" id="telefone">
+          <input type="tel" name="telefone" id="telefone">
         </div>
         <div>
           <label for="cep">CEP</label>
@@ -77,13 +77,12 @@ exitWhenNotLogged($pdo);
           <input type="text" name="estado" id="estado">
         </div>
 
-
         <div>
-          <label for="peso">Peso</label>
+          <label for="peso">Peso (em kg)</label>
           <input type="number" name="peso" id="peso">
         </div>
         <div>
-          <label for="altura">Altura</label>
+          <label for="altura">Altura (em cm)</label>
           <input type="number" name="altura" id="altura">
         </div>
         <div>

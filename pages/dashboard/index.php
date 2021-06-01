@@ -62,8 +62,8 @@ exitWhenNotLogged($pdo);
             
             <div class="dashboard__content__cards--next">
               <h2>Próximo atendimento</h2>
-              <p><strong>Nome:</strong>Daniel Furado</p>
-              <p><strong>Idade:</strong>26</p>
+              <p><strong>Nome:</strong>Daniel Furtado</p>
+              <p><strong>Idade:</strong>40</p>
               <p><strong>Exame:</strong>Acompanhamento</p>
             </div>
           </div>
@@ -74,14 +74,13 @@ exitWhenNotLogged($pdo);
             <div class="dashboard__profile__infos">
                 <h3>Nome:</h3>
                 <p><?php echo $_SESSION['nome'];?></p>
+
                 <h3>Cargo:</h3>
-                <p>Médica</p>
-                <h3>Área:</h3>
-                <p>Neurologia</p>
-                <h3>Entrou em:</h3>
-                <p>20/05/2000</p>
-                <h3>Contato:</h3>
-                <p>+55 (34) 99584-6584</p>
+                <p id="infoMedico" style="display:none;">Médico</p>
+                <p id="infoFunc" style="display:none;">Funcionário</p>  
+
+                <h3>Email:</h3>
+                <p><?php echo $_SESSION['email'];?></p>
             </div>
         </main>
 
@@ -100,9 +99,12 @@ exitWhenNotLogged($pdo);
                 }
 
                 var response = JSON.parse(xhr.responseText);
-                if( response.success == true )
-                  document.querySelector("#meusAgend").style.display = 'inline-block';
-              
+                if( response.success == true ) {
+                  document.querySelector("#meusAgend").style.display = 'inline-block'; 
+                  document.querySelector("#infoMedico").style.display = 'inline-block';
+                } else {
+                  document.querySelector("#infoFunc").style.display = 'inline-block';
+                }
             }
           }
         </script>

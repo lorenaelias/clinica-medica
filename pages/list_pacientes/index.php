@@ -50,8 +50,8 @@ exitWhenNotLogged($pdo);
                         <th>Telefone</th>
 
                         <th>Tipo Sang.</th>
-                        <th>Peso</th>
-                        <th>Altura</th>
+                        <th>Peso (kg)</th>
+                        <th>Altura (cm)</th>
                         
                         <th>Logradouro</th>
                         <th>Cidade</th>
