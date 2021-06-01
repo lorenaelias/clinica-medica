@@ -20,6 +20,7 @@ exitWhenNotLogged($pdo);
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/dashboard.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Dashboard</title>
   </head>
   <body class="dashboard__container" onload="ifMedico();">

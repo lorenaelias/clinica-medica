@@ -19,6 +19,7 @@ exitWhenNotLogged($pdo);
     rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/globalStyles.css" />
   <link rel="stylesheet" href="../../styles/cad_funcionario.css" />
+  <link rel="stylesheet" href="../../styles/responsive.css" />
   <title>DevHealth | Cadastrar funcionário</title>
 </head>
 

@@ -20,6 +20,7 @@ exitWhenNotLogged($pdo);
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/list_pacientes.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Listar Pacientes</title>
   </head>
   <body class="listPacientes__container" onload="ifMedico();buscaPacientes();">

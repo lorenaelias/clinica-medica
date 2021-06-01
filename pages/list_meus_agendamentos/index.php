@@ -20,6 +20,7 @@ exitWhenNotLogged($pdo);
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/list_meus_agendamentos.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Listar Meus Agendamentos</title>
   </head>
   <body class="listMeusAgendamentos__container" onload="buscaMeusAgendamentos();">

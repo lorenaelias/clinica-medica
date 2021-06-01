@@ -20,6 +20,7 @@ exitWhenNotLogged($pdo);
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/list_funcionarios.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Listar Funcionários</title>
   </head>
   <body class="listFuncionarios__container" onload="ifMedico(); buscaFuncionarios();">

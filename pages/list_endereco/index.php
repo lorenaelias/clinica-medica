@@ -20,6 +20,7 @@ exitWhenNotLogged($pdo);
     />
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/list_enderecos.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Listar Endereços</title>
   </head>
   <body class="listEnderecos__container" onload="ifMedico(); buscaEnderecos();">
