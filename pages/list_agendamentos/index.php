@@ -42,8 +42,8 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="tableContainer">
-                <table class="listTable" id="appointmentsList">
-                    <tr class="listTable__header" id="agendamentosLista" >
+                <table class="listTable" id="appointmentsList"  id="agendamentosLista">
+                    <tr class="listTable__header" >
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Data</th>
