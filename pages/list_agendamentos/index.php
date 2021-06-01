@@ -43,7 +43,7 @@ exitWhenNotLogged($pdo);
             </div>
             <div class="tableContainer">
                 <table class="listTable" id="appointmentsList">
-                    <tr class="listTable__header" >
+                    <tr class="listTable__header" id="agendamentosLista" >
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Data</th>
@@ -70,7 +70,7 @@ exitWhenNotLogged($pdo);
 
                     var response = JSON.parse(xhr.responseText);
 
-                    let agendamentos = document.querySelector("#appointmentsList");
+                    let agendamentos = document.querySelector("#agendamentosLista");
                     
                     for (i = agendamentos.length - 1; i >= 0; i--) {
                         agendamentos.remove(i);
