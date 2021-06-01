@@ -22,7 +22,7 @@ exitWhenNotLogged($pdo);
     <link rel="stylesheet" href="../../styles/list_funcionarios.css" />
     <title>DevHealth | Listar Funcionários</title>
   </head>
-  <body class="listFuncionarios__container" onload="ifMedico();">
+  <body class="listFuncionarios__container" onload="ifMedico(); buscaFuncionarios();">
         <aside class="listFuncionarios__aside">
             <nav class="listFuncionarios__aside__icons">
                 <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
@@ -42,28 +42,84 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="tableContainer">
-                <table  class="listTable">
+                <table  class="listTable" id="employeesList">
                     <tr class="listTable__header" >
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Telefone</th>
-                        <th>É médico ?</th>
+                        <th>Salário</th>
+                        <th>Data contrato</th>
                         <th>CRM</th>
                         <th>Especialidade</th>
-                    </tr>
-                    <tr class="listTable__item" >
-                        <td>Ilmerio Reis</td>
-                        <td>Ilmerio@ufu.com.br</td>
-                        <td>99498-7812</td>
-                        <td>Não</td>
-                        <td>Não possui</td>
-                        <td>Não possui</td>
                     </tr>
                 </table>
             </div>
         </div>
 
         <script>
+          function buscaFuncionarios(){
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "../../src/scripts/getEmployees/index.php", true);
+            xhr.send();
+
+            xhr.onload = function () {
+
+                if (xhr.status != 200){
+                    console.log("Erro!");
+                }
+
+                var response = JSON.parse(xhr.responseText);
+
+                let funcionarios = document.querySelector("#employeesList");
+                
+                for (i = funcionarios.length - 1; i >= 0; i--) {
+                    funcionarios.remove(i);
+                }
+
+                for (i=0; i<response.length; i++) {
+                
+                    funcionario = response[i];
+
+                    const novotr = document.createElement("tr");  
+
+                    const nome = document.createElement("td");
+                    nome.textContent = funcionario.nome;
+
+                    const email = document.createElement("td"); 
+                    email.textContent = funcionario.email;
+
+                    const telefone = document.createElement("td"); 
+                    telefone.textContent = funcionario.telefone;
+
+                    const salario = document.createElement("td"); 
+                    salario.textContent = funcionario.salario;
+
+                    const dataContrato = document.createElement("td"); 
+                    dataContrato.textContent = funcionario.dataContrato;
+                    
+                    const crm = document.createElement("td"); 
+                    crm.textContent = funcionario.crm;
+
+                    const especialidade = document.createElement("td"); 
+                    especialidade.textContent = funcionario.especialidade;
+
+                    novotr.appendChild(nome);
+                    novotr.appendChild(email);
+                    novotr.appendChild(telefone);
+                    novotr.appendChild(salario);
+                    novotr.appendChild(dataContrato);
+                    novotr.appendChild(crm);   
+                    novotr.appendChild(especialidade);   
+                    novotr.classList.add("listTable__item");           
+                    
+                    funcionarios.appendChild(novotr);
+                }   
+                
+            }
+          }
+
           function ifMedico() {
 
             var xhr = new XMLHttpRequest();
