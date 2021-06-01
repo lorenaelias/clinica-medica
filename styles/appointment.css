@@ -63,7 +63,7 @@
 }
 
 .appointmentContent__form div select {
-    width: 20%;
+    width: 50%;
     font-family:  'Poppins', sans-serif;
     border: none;
     border-bottom: 1px solid var(--black);
@@ -72,7 +72,7 @@
 }
 
 #appointmentDate {
-    width: 25%;
+    width: 50%;
 }
 
 .appointmentContent__form button {

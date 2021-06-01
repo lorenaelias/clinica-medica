@@ -79,7 +79,7 @@ exitWhenNotLogged($pdo);
         </div>
         <div class="col-sm-4">
           <label class="form-label" for="iniContrato">Início do Contrato</label class="form-label">
-          <input class="form-control" type="date" name="iniContrato" id="iniContrato">
+          <input class="form-control" type="date" name="iniContrato" id="iniContrato" maxlength="8" min="1910-01-01" max="2030-12-31">
         </div>
         <div class="col-sm-4">
           <label class="form-label" for="salario">Salário</label class="form-label">
