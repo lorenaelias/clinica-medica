@@ -42,7 +42,7 @@ exitWhenNotLogged($pdo);
                 <h2>Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="tableContainer">
-                <table class="listTable" id="appointmentsList"  id="agendamentosLista">
+                <table class="listTable" id="appointmentsList">
                     <tr class="listTable__header" >
                         <th>Nome</th>
                         <th>Email</th>
@@ -70,7 +70,7 @@ exitWhenNotLogged($pdo);
 
                     var response = JSON.parse(xhr.responseText);
 
-                    let agendamentos = document.querySelector("#agendamentosLista");
+                    let agendamentos = document.querySelector("#appointmentsList");
                     
                     for (i = agendamentos.length - 1; i >= 0; i--) {
                         agendamentos.remove(i);
