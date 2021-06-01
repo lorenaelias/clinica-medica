@@ -90,7 +90,7 @@
     padding-bottom: .2rem;
 }
 
-#nome, #email, #logradouro {
+/* #nome, #email, #logradouro {
     width: 50%;
 }
 
@@ -101,15 +101,15 @@
     border-bottom: 1px solid var(--black);
     padding-left: .4rem;
     padding-bottom: .2rem;
-}
+} */
 
-#sexo, #telefone, #cidade, #estado, #salario, #senha {
+/* #sexo, #telefone, #cidade, #estado, #salario, #senha {
     width: 20%;
 }
 
 #cep, #iniContrato {
     width: 15%;
-}
+} */
 
 .cadFuncionario_content__formContainer form button {
     font-size: 1.5rem;

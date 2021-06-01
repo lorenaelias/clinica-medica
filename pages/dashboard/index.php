@@ -7,13 +7,13 @@ $pdo = mysqlConnect();
 exitWhenNotLogged($pdo);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
     <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" >
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -26,17 +26,17 @@ exitWhenNotLogged($pdo);
   <body class="dashboard__container" onload="ifMedico();">
         <aside class="dashboard__aside">
             <nav class="dashboard__aside__icons">
-                <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
-                <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" /></a>
-                <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
-                <a href="../list_pacientes"><img src="../../public/icons/painel.png" alt="painel" /></a>
-                <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" /></a>
-                <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
-                <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
+                <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" ></a>
+                <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" ></a>
+                <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" ></a>
+                <a href="../list_pacientes"><img src="../../public/icons/painel.png" alt="painel" ></a>
+                <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" ></a>
+                <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" ></a>
+                <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" ></a>
                 
-                <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
+                <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" ></a>
                 
-                <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+                <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" ></a>
             </nav>
         </aside>
 
@@ -63,8 +63,8 @@ exitWhenNotLogged($pdo);
             
             <div class="dashboard__content__cards--next">
               <h2>Próximo atendimento</h2>
-              <p><strong>Nome:</strong>Daniel Furado</p>
-              <p><strong>Idade:</strong>26</p>
+              <p><strong>Nome:</strong>Daniel Furtado</p>
+              <p><strong>Idade:</strong>40</p>
               <p><strong>Exame:</strong>Acompanhamento</p>
             </div>
           </div>
@@ -75,14 +75,13 @@ exitWhenNotLogged($pdo);
             <div class="dashboard__profile__infos">
                 <h3>Nome:</h3>
                 <p><?php echo $_SESSION['nome'];?></p>
+
                 <h3>Cargo:</h3>
-                <p>Médica</p>
-                <h3>Área:</h3>
-                <p>Neurologia</p>
-                <h3>Entrou em:</h3>
-                <p>20/05/2000</p>
-                <h3>Contato:</h3>
-                <p>+55 (34) 99584-6584</p>
+                <p id="infoMedico" style="display:none;">Médico</p>
+                <p id="infoFunc" style="display:none;">Funcionário</p>  
+
+                <h3>Email:</h3>
+                <p><?php echo $_SESSION['email'];?></p>
             </div>
         </main>
 
@@ -101,9 +100,12 @@ exitWhenNotLogged($pdo);
                 }
 
                 var response = JSON.parse(xhr.responseText);
-                if( response.success == true )
-                  document.querySelector("#meusAgend").style.display = 'inline-block';
-              
+                if( response.success == true ) {
+                  document.querySelector("#meusAgend").style.display = 'inline-block'; 
+                  document.querySelector("#infoMedico").style.display = 'inline-block';
+                } else {
+                  document.querySelector("#infoFunc").style.display = 'inline-block';
+                }
             }
           }
         </script>

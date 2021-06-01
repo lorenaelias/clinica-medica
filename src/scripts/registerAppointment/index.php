@@ -3,8 +3,6 @@
 require "../../../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
-$nome = $email = $sexo = $especialidadeMedica =  $codigoMedico = $dataAgenda = $horario = "";
-
 if (isset($_POST["nomePaciente"])) $nome = $_POST["nomePaciente"];
 if (isset($_POST["email"])) $email = $_POST["email"];
 if (isset($_POST["sexo"])) $sexo = $_POST["sexo"];
@@ -19,8 +17,12 @@ $sql1 = <<<SQL
 
 $success = true;
 try {
-  $stmt1 = $pdo->prepare($sql1);
-  $stmt1->execute([$nome, $email, $sexo, $codigoMedico, $dataAgenda, $horario]);
+  if( $nome == "" || $email == "" || $sexo == "" || $codigoMedico == "" || $dataAgenda == "" || $horario == ""){
+    $success = false;
+  } else {
+    $stmt1 = $pdo->prepare($sql1);
+    $stmt1->execute([$nome, $email, $sexo, $codigoMedico, $dataAgenda, $horario]);
+  }
 } 
 catch (Exception $e) {
   $success = false;

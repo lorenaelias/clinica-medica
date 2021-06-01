@@ -90,7 +90,7 @@
     padding-bottom: .2rem;
 }
 
-#nome, #email, #logradouro {
+/* #nome, #email, #logradouro {
     width: 50%;
 }
 
@@ -104,7 +104,7 @@
 
 #cep, #iniContrato {
     width: 15%;
-}
+} */
 
 .cadFuncionario_content__formContainer form button {
     font-size: 1.5rem;

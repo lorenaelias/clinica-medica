@@ -7,89 +7,88 @@ $pdo = mysqlConnect();
 exitWhenNotLogged($pdo);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles/globalStyles.css" />
-  <link rel="stylesheet" href="../../styles/cad_paciente.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <link rel="preconnect" href="https://fonts.gstatic.com" >
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/responsive.css" />
+  <link rel="stylesheet" href="../../styles/globalStyles.css" >
+  <link rel="stylesheet" href="../../styles/cad_paciente.css" >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <title>DevHealth | Cadastrar paciente</title>
 </head>
 
 <body class="cadFuncionario__container">
   <aside class="cadFuncionario__aside">
     <nav class="cadFuncionario__aside__icons">
-      <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" /></a>
-      <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" /></a>
-      <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" /></a>
-      <a href="../list_pacientes"><img src="../../public/icons/painel.png" alt="painel" /></a>
-      <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" /></a>
-      <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" /></a>
-      <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" /></a>
-      <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" /></a>
-      <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" /></a>
+      <a href="../dashboard"><img src="../../public/icons/home.png" alt="home" ></a>
+      <a href="../cad_funcionario"><img src="../../public/icons/heart.png" alt="heart" ></a>
+      <a href="../cad_paciente"><img src="../../public/icons/peoples.png" alt="peoples" ></a>
+      <a href="../list_pacientes"><img src="../../public/icons/painel.png" alt="painel" ></a>
+      <a href="../list_funcionarios"><img src="../../public/icons/group.png" alt="group" ></a>
+      <a href="../list_endereco"><img src="../../public/icons/marker.png" alt="marker.png" ></a>
+      <a href="../list_agendamentos"><img src="../../public/icons/calendar.png" alt="calendar.png" ></a>
+      <a href="../list_meus_agendamentos" id="meusAgend" style="display: none;"><img src="../../public/icons/note.png" alt="note" ></a>
+      <a href="../../src/scripts/logout.php"><img src="../../public/icons/logout.png" alt="logout.png" ></a>
     </nav>
   </aside>
   <div class="cadFuncionario__content">
     <h2 class="cadFuncionario__content__header">Terça, 14 de janeiro 2021</h2>
     <div class="cadFuncionario_content__formContainer">
       <h1>Cadastrar novo paciente</h1>
-      <form>
-        <div>
-          <label for="nome">Nome</label>
-          <input type="text" name="nome" id="nome">
+      <form class="row gx-4 gy-3">
+        <div class="col-sm-4">
+          <label class="form-label" for="nome">Nome</label class="form-label">
+          <input class="form-control" type="text" name="nome" id="nome">
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email">
+        <div class="col-sm-4">
+          <label class="form-label" for="email">Email</label class="form-label">
+          <input class="form-control" type="email" name="email" id="email">
         </div>
-        <div>
-          <label for="sexo">Sexo</label>
-          <select name="sexo" id="sexo">
+        <div class="col-sm-4">
+          <label class="form-label" for="sexo">Sexo</label class="form-label">
+          <select class="form-select" name="sexo" id="sexo">
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Feminino</option>
           </select>
         </div>
-        <div>
-          <label for="telefone">Telefone</label>
-          <input type="text" name="telefone" id="telefone">
+        <div class="col-sm-4">
+          <label class="form-label" for="telefone">Telefone</label class="form-label">
+          <input class="form-control" type="tel" name="telefone" id="telefone">
         </div>
-        <div>
-          <label for="cep">CEP</label>
-          <input type="text" name="cep" id="cep">
+        <div class="col-sm-4">
+          <label class="form-label" for="cep">CEP (Ex. 38400-100)</label class="form-label">
+          <input class="form-control" type="text" name="cep" id="cep" maxlength="9">
         </div>
-        <div>
-          <label for="logradouro">Logradouro</label>
-          <input type="text" name="logradouro" id="logradouro">
+        <div class="col-sm-4">
+          <label class="form-label" for="logradouro">Logradouro</label class="form-label">
+          <input class="form-control" type="text" name="logradouro" id="logradouro">
         </div>
-        <div>
-          <label for="cidade">Cidade</label>
-          <input type="text" name="cidade" id="cidade">
+        <div class="col-sm-6">
+          <label class="form-label" for="cidade">Cidade</label class="form-label">
+          <input class="form-control" type="text" name="cidade" id="cidade">
         </div>
-        <div>
-          <label for="estado">Estado</label>
-          <input type="text" name="estado" id="estado">
+        <div class="col-sm-6">
+          <label class="form-label" for="estado">Estado</label class="form-label">
+          <input class="form-control" type="text" name="estado" id="estado">
         </div>
 
-
-        <div>
-          <label for="peso">Peso</label>
-          <input type="number" name="peso" id="peso">
+        <div class="col-sm-4">
+          <label class="form-label" for="peso">Peso (em kg)</label class="form-label">
+          <input class="form-control" type="number" name="peso" id="peso">
         </div>
-        <div>
-          <label for="altura">Altura</label>
-          <input type="number" name="altura" id="altura">
+        <div class="col-sm-4">
+          <label class="form-label" for="altura">Altura (em cm)</label class="form-label">
+          <input class="form-control" type="number" name="altura" id="altura">
         </div>
-        <div>
-          <label for="tipoSanguineo">Tipo sanguíneo</label>
-          <select name="tiposanguineo" id="tipoSanguineo">
+        <div class="col-sm-4">
+          <label class="form-label" for="tipoSanguineo">Tipo sanguíneo</label class="form-label">
+          <select class="form-select" name="tiposanguineo" id="tipoSanguineo">
             <option selected value="A+">A positivo</option>
             <option value="A-">A negativo</option>
             <option value="B+">B positivo</option>
@@ -110,6 +109,8 @@ exitWhenNotLogged($pdo);
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 
   <script>
@@ -157,7 +158,6 @@ exitWhenNotLogged($pdo);
         campos[i].value = '';
       }
     }
-
     let botao = document.querySelector("#buttonCad");
     botao.addEventListener('click', validar);
 

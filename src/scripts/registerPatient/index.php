@@ -3,10 +3,6 @@
 require "../../../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
-$nome = $sexo = $email = $telefone = "";
-$cep = $logradouro = $cidade = $estado = "";
-$peso = $altura = $tiposanguineo = "";
-
 if (isset($_POST["nome"])) $nome = $_POST["nome"];
 if (isset($_POST["sexo"])) $sexo = $_POST["sexo"];
 if (isset($_POST["email"])) $email = $_POST["email"];
@@ -33,22 +29,27 @@ $sql2 = <<<SQL
   SQL;
 
 try {
-  $pdo->beginTransaction();
 
-  $stmt1 = $pdo->prepare($sql1);
-  if (!$stmt1->execute([
-    $nome, $sexo, $email, $telefone, 
-    $cep, $logradouro, $cidade, $estado
-  ])) throw new Exception('Falha na primeira inserção');
+  if( $nome == "" || $email == "" || $sexo == "" || $telefone == "" || $cep == "" || $logradouro == "" || $cidade == "" || $estado == "" || $peso == "" || $altura = "" || $tiposanguineo == ""){
+    $success = false;
+  } else {
+    $pdo->beginTransaction();
 
-  $idNovoPaciente = $pdo->lastInsertId();
-  $stmt2 = $pdo->prepare($sql2);
-  if (!$stmt2->execute([
-    $idNovoPaciente, $peso, $altura, $tiposanguineo
-  ])) throw new Exception('Falha na segunda inserção');
+    $stmt1 = $pdo->prepare($sql1);
+    if (!$stmt1->execute([
+      $nome, $sexo, $email, $telefone, 
+      $cep, $logradouro, $cidade, $estado
+    ])) throw new Exception('Falha na primeira inserção');
 
-  $pdo->commit();
-  $sucesso = true;
+    $idNovoPaciente = $pdo->lastInsertId();
+    $stmt2 = $pdo->prepare($sql2);
+    if (!$stmt2->execute([
+      $idNovoPaciente, $peso, $altura, $tiposanguineo
+    ])) throw new Exception('Falha na segunda inserção');
+
+    $pdo->commit();
+    $sucesso = true;
+  }
 } 
 catch (Exception $e) {
   $pdo->rollBack();
