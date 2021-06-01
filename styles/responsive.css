@@ -1,5 +1,6 @@
 @media (max-width: 1080px) {
     .landing {
+        height: 100%;
         flex-direction: column;
     }
 
