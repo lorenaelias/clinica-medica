@@ -90,7 +90,7 @@ exitWhenNotLogged($pdo);
         </div>
 
         <div>
-          <label for="medico">Médico</label>
+          <label for="selectMedico">Médico</label>
           <select id="selectMedico" name="medico">
             <option value="true">Sim</option>
             <option value="false" selected>Não</option>
