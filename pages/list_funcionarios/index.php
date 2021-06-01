@@ -100,10 +100,18 @@ exitWhenNotLogged($pdo);
                     dataContrato.textContent = funcionario.dataContrato;
                     
                     const crm = document.createElement("td"); 
-                    crm.textContent = funcionario.crm;
+                    
+                    if (funcionario.crm == null)
+                      crm.textContent = "-";
+                    else 
+                      crm.textContent = funcionario.crm;
 
                     const especialidade = document.createElement("td"); 
-                    especialidade.textContent = funcionario.especialidade;
+                    
+                    if (funcionario.especialidade == null)
+                      especialidade.textContent = "-"
+                    else
+                      especialidade.textContent = funcionario.especialidade;
 
                     novotr.appendChild(nome);
                     novotr.appendChild(email);

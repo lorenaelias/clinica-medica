@@ -10,10 +10,9 @@ exitWhenNotLogged($pdo);
 try {
 
   $sql = <<<SQL
-    SELECT nome, email, telefone, salario, dataContrato, crm, especialidade
-    FROM PESSOA_TF, FUNCIONARIO_TF, MEDICO_TF
-    WHERE PESSOA_TF.codigo = FUNCIONARIO_TF.codigo
-    GROUP BY PESSOA_TF.codigo
+    SELECT nome, email, telefone, salario, dataContrato, crm, especialidade 
+    FROM PESSOA_TF INNER JOIN FUNCIONARIO_TF ON PESSOA_TF.codigo = FUNCIONARIO_TF.codigo 
+    LEFT OUTER JOIN MEDICO_TF ON FUNCIONARIO_TF.codigo = MEDICO_TF.codigo
   SQL;
 
   $stmt = $pdo->prepare($sql);
