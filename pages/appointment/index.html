@@ -76,7 +76,9 @@
                   </div>
                   <div>
                     <label for="medicName">Nome do médico especialista</label>
-                    <select id="medicName" name="medicName"></select>
+                    <select id="medicName" name="medicName">
+                      <option value="">Selecione</option>
+                    </select>
                   </div>
                   <div>
                     <label for="appointmentDate">Data da consulta</label>
@@ -84,17 +86,8 @@
                   </div>
                   <div>
                     <label for="appointmentTime">Horário disponível da consulta</label>
-                    <select t name="horario" id="appointmentTime">
-                        <option value="7">07h - 08h</option>
-                        <option value="8">08h - 09h</option>
-                        <option value="9">09h - 10h</option>
-                        <option value="10">10h - 11h</option>
-                        <option value="11">11h - 12h</option>
-                        <option value="13">13h - 14h</option>
-                        <option value="14">14h - 15h</option>
-                        <option value="15">15h - 16h</option>
-                        <option value="16">16h - 17h</option>
-                        <option value="17">17h - 18h</option>
+                    <select name="horario" id="appointmentTime">
+                        <option value="">Selecione</option>
                     </select>
                   </div>
                   <button type="submit" id="buttonCad">Agendar</button>
@@ -174,6 +167,19 @@
 
     function buscaMedico(ev) {
       ev.preventDefault();
+
+      let dataconsulta = document.querySelector("#appointmentDate");
+      dataconsulta.value = '';
+
+      let horarioconsulta = document.querySelector("#appointmentTime");
+      for (i = horarioconsulta.length - 1; i >= 0; i--) {
+        horarioconsulta.remove(i);
+      }
+      selecione = document.createElement("option");
+      selecione.text = "Selecione";
+      selecione.value = "";
+      horarioconsulta.add(selecione);
+
       let especialidade_medico = document.querySelector("#medicSpecialuty");
       let xhr = new XMLHttpRequest();
       xhr.open(
@@ -220,6 +226,9 @@
       ev.preventDefault();
 
       let medico = document.querySelector("#medicName");
+      if(medico == "") {
+        return;
+      }
       let dat = document.querySelector("#appointmentDate");
 
       let xhr = new XMLHttpRequest();
