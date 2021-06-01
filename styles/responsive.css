@@ -1,0 +1,114 @@
+@media (max-width: 1080px) {
+    .landing {
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .landing__rightSide {
+        margin-top: 2rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards__item {
+        width: 50%;
+    }
+
+    .cards__item  + .cards__item  {
+        margin-top: 4rem;
+    }
+
+    .points {
+        flex-direction: column;
+    }
+
+    .points__bullets {
+        margin-left: 0%;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 780px) {
+    .header__logo p {
+        display: none;
+    }
+
+    .landing__leftSide {
+        margin-right: 0;
+    } 
+
+    .landing__rightSide h1 {
+        font-size: 3.5rem;
+    }
+
+    .landing__rightSide__btn a {
+        width: 70%;
+    }
+
+    .header__navigation {
+        margin-right: 1rem;
+    }
+
+    .header__navigation__list__item:not(:first-child) {
+        margin-left: 1rem;
+    }
+
+    .header__navigation__list__item a {
+        font-size: 1.2rem;
+    }
+
+    .ctaContainer__content {
+        width: 70%;
+    }
+
+    .ctaContainer__content h1 {
+        font-size: 3rem;
+    }
+
+    .ctaContainer__content__btn a {
+        width: 80%;
+    }
+
+    .commentary--left {
+        flex-direction: column;
+        width: 65%;
+    }
+
+    .commentary--right {
+        flex-direction: column-reverse;
+        width: 65%;
+    }
+
+    .commentary img {
+        margin-bottom: 1rem;
+    }
+
+    .appointmentContent__form,
+    .addressContent__form,
+    .appointmentContent__formContainer h2 {
+        width: 90%;
+    }
+
+    .appointmentContent__description__text,
+    .galleryContent__description__text,
+    .addressContent__description__text {
+        padding: 2rem 4rem;
+    }
+
+    .appointmentContent__description__title,
+    .galleryContent__description__title,
+    .addressContent__description__title {
+        font-size: 3rem;
+    }
+
+    .loginContainer__Title {
+        font-size: 2rem;
+    }
+}

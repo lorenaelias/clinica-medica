@@ -15,8 +15,8 @@ exitWhenNotLogged($pdo);
   <link rel="shortcut icon" href="../../public/icons/Logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <link rel="preconnect" href="https://fonts.gstatic.com" >
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" >
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/responsive.css" />
   <link rel="stylesheet" href="../../styles/globalStyles.css" >
   <link rel="stylesheet" href="../../styles/cad_paciente.css" >
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -148,17 +148,16 @@ exitWhenNotLogged($pdo);
 
     window.onload = function () {
       ifMedico();
-      const input class="form-control"Cep = document.querySelector("#cep");
-      input class="form-control"Cep.onkeyup = () => buscaEndereco(input class="form-control"Cep.value);
+      const inputCep = document.querySelector("#cep");
+      inputCep.onkeyup = () => buscaEndereco(inputCep.value);
     }
 
     function limparCampos() {
-      let campos = document.querySelectorAll('input class="form-control"');
+      let campos = document.querySelectorAll('input');
       for (let i = 0; i < campos.length; i++) {
         campos[i].value = '';
       }
     }
-
     let botao = document.querySelector("#buttonCad");
     botao.addEventListener('click', validar);
 

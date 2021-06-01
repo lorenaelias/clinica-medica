@@ -17,9 +17,10 @@ exitWhenNotLogged($pdo);
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-    >
-    <link rel="stylesheet" href="../../styles/globalStyles.css" >
-    <link rel="stylesheet" href="../../styles/dashboard.css" >
+    />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/dashboard.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Dashboard</title>
   </head>
   <body class="dashboard__container" onload="ifMedico();">

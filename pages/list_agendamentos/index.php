@@ -16,10 +16,10 @@ exitWhenNotLogged($pdo);
     <link rel="preconnect" href="https://fonts.gstatic.com" >
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    >
-    <link rel="stylesheet" href="../../styles/globalStyles.css" >
-    <link rel="stylesheet" href="../../styles/list_agendamentos.css" >
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../../styles/list_agendamentos.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
     <title>DevHealth | Listar Agendamentos</title>
   </head>
   <body class="listAgendamentos__container" onload="ifMedico(); buscaAgendamentos();">
