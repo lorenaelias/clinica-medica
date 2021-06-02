@@ -13,7 +13,7 @@ if (isset($_POST["cidade"])) $cidade = $_POST["cidade"];
 if (isset($_POST["estado"])) $estado = $_POST["estado"];
 
 if (isset($_POST["iniContrato"])) $iniContrato = date("Y-m-d", strtotime($_POST["iniContrato"]));
-if (isset($_POST["salario"])) $salario = floatval($_POST["salario"]);
+if (isset($_POST["salario"])) $salario = (string) $_POST["salario"];
 if (isset($_POST["senha"])) $senha = $_POST["senha"];
 
 if (isset($_POST["medico"])) $medico = (string) $_POST["medico"];
@@ -41,7 +41,7 @@ $sql3 = <<<SQL
   SQL;
 
 try {
-  if( $nome == "" || $email == "" || $sexo == "" || $telefone == "" || $cep == "" || $logradouro == "" || $cidade == "" || $estado == "" || $iniContrato == "" || $salario = "" || $senha == ""){
+  if( $nome == "" || $email == "" || $sexo == "" || $telefone == "" || $cep == "" || $logradouro == "" || $cidade == "" || $estado == "" || $iniContrato == "" || $salario == "" || $senha == ""){
     $success = false;
   }
   else if ( $medico == "true" && ($crm == "" || $especialidade == "") ) {
