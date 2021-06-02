@@ -2,7 +2,7 @@
     --background: #f7f7f7;
 
     --gray: #ececec;
-    --white: #ffffff;
+    --white: hsl(0, 0%, 100%);
     --black: #1d1d1d;
     --light-dark: #383838;
     --blue: #3B5998;

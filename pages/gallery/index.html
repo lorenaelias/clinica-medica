@@ -12,90 +12,108 @@
     <link rel="stylesheet" href="../../styles/globalStyles.css" />
     <link rel="stylesheet" href="../../styles/gallery.css" />
     <link rel="stylesheet" href="../../styles/responsive.css" />
+    <link rel="stylesheet" href="../../styles/navigation.css" />
     <title>DevHealth | Galeria</title>
   </head>
   <body>
-        <header class="header">
-            <div class="header__logo">
-            <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" ></a>
-            <p>DevHealth</p>
-            </div>
-            <nav class="header__navigation">
-            <ul class="header__navigation__list">
-                <li class="header__navigation__list__item">
-                <a href="../appointment">Agendamentos</a>
-                </li>
-                <li class="header__navigation__list__item">
-                <a href="../gallery">Galeria</a>
-                </li>
-                <li class="header__navigation__list__item">
-                <a href="../address">Novo Endereço</a>   <!-- trocando de register para address -->
-                </li>
-                <li
-                class="header__navigation__list__item header__navigation__list__item--highlight"
-                >
-                <a href="../login">Login</a>
-                </li>
+
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+            <li class="navigation__item"><a href="../appointment" class="navigation__link"><span>01</span>Agendamentos</a></li>
+            <li class="navigation__item"><a href="../gallery" class="navigation__link"><span>02</span>Galeria</a></li>
+            <li class="navigation__item"><a href="../address" class="navigation__link"><span>03</span>Novo Endereço</a></li>
+            <li class="navigation__item"><a href="../login" class="navigation__link"><span>04</span>Login</a></li>
             </ul>
-            </nav>
-        </header>
+        </nav>
+    </div>
+    <header class="header">
+        <div class="header__logo">
+        <a href=".."><img src="../../public/icons/Logo.png" alt="Logo" ></a>
+        <p>DevHealth</p>
+        </div>
+        <nav class="header__navigation">
+        <ul class="header__navigation__list">
+            <li class="header__navigation__list__item">
+            <a href="../appointment">Agendamentos</a>
+            </li>
+            <li class="header__navigation__list__item">
+            <a href="../gallery">Galeria</a>
+            </li>
+            <li class="header__navigation__list__item">
+            <a href="../address">Novo Endereço</a>   <!-- trocando de register para address -->
+            </li>
+            <li
+            class="header__navigation__list__item header__navigation__list__item--highlight"
+            >
+            <a href="../login">Login</a>
+            </li>
+        </ul>
+        </nav>
+    </header>
 
-        <main class="galleryContent">
-            <section class="galleryContent__description">
-                <h1 class="galleryContent__description__title">Galeria</h1>
-                <p class="galleryContent__description__text">
-                    Contrary to popular belief, Lorem Ipsum is not 
-                    simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
-                    making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
-                    College in Virginia, looked up one of the more obscure Latin words, consectetur, from a 
-                    Lorem Ipsum passage, and going through the cites of the word in classical literature, 
-                    discovered the undoubtable source.
-                </p>
-            </section>
-            <hr>
-            <div class="galleryContent__images">
-                <figure id="img_01">
-                    <img src="../../src/assets/images/image10.png" alt="Photo 01" >
-                </figure>
-                <figure id="img_02">
-                    <img src="../../src/assets/images/image12.png" alt="Photo 02" >
-                </figure>
-                <figure id="img_03">
-                    <img src="../../src/assets/images/image13.png" alt="Photo 03" >
-                </figure>
-                <figure id="img_04">
-                    <img src="../../src/assets/images/image15.png" alt="Photo 04" >
-                </figure>
-                <figure id="img_05">
-                    <img src="../../src/assets/images/image14.png" alt="Photo 05" >
-                </figure>
-                <figure id="img_06">
-                    <img src="../../src/assets/images/image16.png" alt="Photo 06" >
-                </figure>
-                <figure id="img_07">
-                    <img src="../../src/assets/images/image17.png" alt="Photo 07" >
-                </figure>
-                <figure id="img_08">
-                    <img src="../../src/assets/images/image15.png" alt="Photo 08" >
-                </figure>
-            </div>
-        </main>
+    <main class="galleryContent">
+        <section class="galleryContent__description">
+            <h1 class="galleryContent__description__title">Galeria</h1>
+            <p class="galleryContent__description__text">
+                Contrary to popular belief, Lorem Ipsum is not 
+                simply random text. It has roots in a piece of classical Latin literature from 45 BC, 
+                making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
+                College in Virginia, looked up one of the more obscure Latin words, consectetur, from a 
+                Lorem Ipsum passage, and going through the cites of the word in classical literature, 
+                discovered the undoubtable source.
+            </p>
+        </section>
+        <hr>
+        <div class="galleryContent__images">
+            <figure id="img_01">
+                <img src="../../src/assets/images/image10.png" alt="Photo 01" >
+            </figure>
+            <figure id="img_02">
+                <img src="../../src/assets/images/image12.png" alt="Photo 02" >
+            </figure>
+            <figure id="img_03">
+                <img src="../../src/assets/images/image13.png" alt="Photo 03" >
+            </figure>
+            <figure id="img_04">
+                <img src="../../src/assets/images/image15.png" alt="Photo 04" >
+            </figure>
+            <figure id="img_05">
+                <img src="../../src/assets/images/image14.png" alt="Photo 05" >
+            </figure>
+            <figure id="img_06">
+                <img src="../../src/assets/images/image16.png" alt="Photo 06" >
+            </figure>
+            <figure id="img_07">
+                <img src="../../src/assets/images/image17.png" alt="Photo 07" >
+            </figure>
+            <figure id="img_08">
+                <img src="../../src/assets/images/image15.png" alt="Photo 08" >
+            </figure>
+        </div>
+    </main>
 
-
-
-        <footer class="footer">
-            <hr >
-            <address>
-              <p>
-                Avenida Floriano Peixoto, 1458, Maria Rezende, Uberlândia - Minas
-                Gerais
-              </p>
-            </address>
-            <div>
-              <img src="../../public/icons/LogoWhite.png" alt="Logo" >
-            </div>
-      
-            <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
-          </footer>
+    <footer class="footer">
+        <hr >
+        <address>
+            <p>
+            Avenida Floriano Peixoto, 1458, Maria Rezende, Uberlândia - Minas
+            Gerais
+            </p>
+        </address>
+        <div>
+            <img src="../../public/icons/LogoWhite.png" alt="Logo" >
+        </div>
+    
+        <p>Desenvolvido com muito ❤️ por Lola, Trakinas e Ricardin</p>
+    </footer>
   </body>
 </html>

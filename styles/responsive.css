@@ -111,4 +111,16 @@
     .loginContainer__Title {
         font-size: 2rem;
     }
+
+    .loginContainer {
+        width: 50vw;
+        height: 45vh;
+    }
+}
+
+@media (max-width: 550px) {
+    .loginContainer {
+        width: 65vw;
+        height: 50vh;
+    }
 }
