@@ -37,7 +37,7 @@ exitWhenNotLogged($pdo);
         <div class="listEnderecos__content">
             <div class="listEnderecos__content__header">
                 <h1>Listagem de Endereços</h1>
-                <h2>Terça, 14 de janeiro 2021</h2>
+                <h2 id="listEnderecoDate">Terça, 14 de janeiro 2021</h2>
             </div>
 
             <div class="tableContainer">
@@ -51,6 +51,8 @@ exitWhenNotLogged($pdo);
                 </table>
             </div>
         </div>
+
+        <script src="../../src/scripts/date.js"></script>
 
         <script>
             function buscaEnderecos(){

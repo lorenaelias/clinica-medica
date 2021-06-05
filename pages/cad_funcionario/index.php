@@ -38,7 +38,7 @@ exitWhenNotLogged($pdo);
     </nav>
   </aside>
   <div class="cadFuncionario__content">
-    <h2 class="cadFuncionario__content__header">Terça, 14 de janeiro 2021</h2>
+    <h2 class="cadFuncionario__content__header" id="cadFuncionarioDate" >Terça, 14 de janeiro 2021</h2>
     <div class="cadFuncionario_content__formContainer">
       <h1>Cadastrar novo funcionário</h1>
       <form class="row gx-4 gy-3">
@@ -122,7 +122,7 @@ exitWhenNotLogged($pdo);
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
+  <script src="../../src/scripts/date.js"></script>
   <script>
     let selected = document.querySelector("#selectMedico");
 
@@ -247,6 +247,8 @@ exitWhenNotLogged($pdo);
       }
     }
   </script>
+
+
 </body>
 
 </html>

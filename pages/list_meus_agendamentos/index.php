@@ -37,7 +37,7 @@ exitWhenNotLogged($pdo);
         <div class="listMeusAgendamentos__content">
             <div class="listMeusAgendamentos__content__header">
                 <h1>Listagem dos Meus Agendamentos</h1>
-                <h2>Terça, 14 de janeiro 2021</h2>
+                <h2 id="listMeusAgendamentosDate" >Terça, 14 de janeiro 2021</h2>
             </div>
             <div class="tableContainer">
                 <table class="listTable" id="listAgendamentos">
@@ -51,6 +51,8 @@ exitWhenNotLogged($pdo);
                 </table>
             </div>
         </div>
+
+        <script src="../../src/scripts/date.js"></script>
 
         <script>
             function buscaMeusAgendamentos(){

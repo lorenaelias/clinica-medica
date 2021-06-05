@@ -43,7 +43,7 @@ exitWhenNotLogged($pdo);
         <main class="dashboard__content">
           <div class="dashboard__content__header">
             <span>Dashboard</span>
-            <span>Terça, 14 de janeiro</span>
+            <span id="dashboardDate">Terça, 14 de janeiro</span>
           </div>
           <div class="dashboard__content__painel">
             <img src="../../src/assets/images/HPro.png" alt="Health professional">
@@ -69,7 +69,7 @@ exitWhenNotLogged($pdo);
             </div>
           </div>
         </main>
-        <main class="dashboard__profile">
+        <div class="dashboard__profile">
             <h1 class="dashboard__profile__title">Perfil</h1>
             <img src="../../src/assets/images/user.png" alt="Person photo" class="dashboard__profile__photo">
             <div class="dashboard__profile__infos">
@@ -83,7 +83,9 @@ exitWhenNotLogged($pdo);
                 <h3>Email:</h3>
                 <p><?php echo $_SESSION['email'];?></p>
             </div>
-        </main>
+        </div>
+
+        <script src="../../src/scripts/date.js"></script>
 
         <script>
           function ifMedico() {
