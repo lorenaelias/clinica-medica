@@ -60,7 +60,7 @@
       if (response.success == false) {
         document.querySelector("#loginFailMsg").style.display = 'block';
       } else {
-        window.location.href = response.destination;
+        window.open(response.destination, "_blank");
       }
     };
 
