@@ -7,10 +7,10 @@ const listFuncionariosDate = document.querySelector('#listFuncionariosDate');
 const listMeusAgendamentosDate = document.querySelector('#listMeusAgendamentosDate');
 const listPacientesDate = document.querySelector('#listPacientesDate');
 
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-var yyyy = today.getFullYear();
+var hoje = new Date();
+var dd = String(hoje.getDate()).padStart(2, '0');
+var mm = String(hoje.getMonth() + 1).padStart(2, '0'); 
+var aaaa = hoje.getFullYear();
 
 const mes = mm == 01 ? 'Janeiro' : 
             mm == 02  ? 'Fevereiro' :
@@ -25,13 +25,21 @@ const mes = mm == 01 ? 'Janeiro' :
             mm == 11 ? 'Novembro' : 
                        'Dezembro'
 
-const fullDate = `${dd} de ${mes}, ${yyyy}`;
+const fullDate = `${dd} de ${mes}, ${aaaa}`;
 
-dashboardDate.innerHTML = fullDate;
-cadFuncionarioDate.innerHTML = fullDate;
-cadPacienteDate.innerHTML = fullDate;
-listAgendamentosDate.innerHTML = fullDate;
-listEnderecoDate.innerHTML = fullDate;
-listFuncionariosDate.innerHTML = fullDate;
-listMeusAgendamentosDate.innerHTML = fullDate;
-listPacientesDate.innerHTML = fullDate;
+if(cadFuncionarioDate != null)
+  cadFuncionarioDate.innerHTML = fullDate;
+else if(dashboardDate != null)
+  dashboardDate.innerHTML = fullDate;
+else if(cadPacienteDate != null)
+  cadPacienteDate.innerHTML = fullDate;
+else if(listAgendamentosDate != null)
+  listAgendamentosDate.innerHTML = listAgendamentosDate != null ? fullDate : "";
+else if(listEnderecoDate != null)
+  listEnderecoDate.innerHTML = listEnderecoDate != null ? fullDate : "";
+else if(listFuncionariosDate != null)
+  listFuncionariosDate.innerHTML = listFuncionariosDate != null ? fullDate : "";
+else if(listMeusAgendamentosDate != null)
+  listMeusAgendamentosDate.innerHTML = listMeusAgendamentosDate != null ? fullDate : "";
+else if(listPacientesDate != null)
+  listPacientesDate.innerHTML = listPacientesDate != null ? fullDate : "";
