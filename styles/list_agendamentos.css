@@ -80,3 +80,45 @@
 .listTable__item td {
     padding: 1.5rem 2rem;
 }
+
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+
+    .listAgendamentos__aside__icons {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .listAgendamentos__aside__icons a img {
+        width: 2.5rem;
+    }
+
+    .listAgendamentos__container {
+        flex-direction: column;
+    }
+
+    .listAgendamentos__aside {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .listAgendamentos__icons {
+        flex-direction: revert;
+        justify-content: space-evenly;
+    }
+
+    .listAgendamentos__icons a:last-child {
+        margin-top: 1.5rem;
+    }
+
+    .listAgendamentos__content__header {
+        margin-top: 2rem;
+    }
+
+    .listAgendamentos__content {
+        width: 100%;
+        height: auto;
+    }
+}

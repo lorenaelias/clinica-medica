@@ -129,3 +129,45 @@
 .cadFuncionario_content__formContainer form button:hover {
     filter: brightness(.8);
 }
+
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+
+    .cadFuncionario__aside__icons {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .cadFuncionario__aside__icons a img {
+        width: 2.5rem;
+    }
+
+    .cadFuncionario__container {
+        flex-direction: column;
+    }
+
+    .cadFuncionario__aside {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .cadFuncionario__icons {
+        flex-direction: revert;
+        justify-content: space-evenly;
+    }
+
+    .cadFuncionario__icons a:last-child {
+        margin-top: 1.5rem;
+    }
+
+    .cadFuncionario__content__header {
+        margin-top: 2rem;
+    }
+
+    .cadFuncionario__content {
+        width: 100%;
+        height: auto;
+    }
+}

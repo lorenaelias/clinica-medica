@@ -80,3 +80,46 @@
 .listTable__item td {
     padding: 1.5rem 2rem;
 }
+
+
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+
+    .listMeusAgendamentos__aside__icons {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .listMeusAgendamentos__aside__icons a img {
+        width: 2.5rem;
+    }
+
+    .listMeusAgendamentos__container {
+        flex-direction: column;
+    }
+
+    .listMeusAgendamentos__aside {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .listMeusAgendamentos__icons {
+        flex-direction: revert;
+        justify-content: space-evenly;
+    }
+
+    .listMeusAgendamentos__icons a:last-child {
+        margin-top: 1.5rem;
+    }
+
+    .listMeusAgendamentos__content__header {
+        margin-top: 2rem;
+    }
+
+    .listMeusAgendamentos__content {
+        width: 100%;
+        height: auto;
+    }
+}

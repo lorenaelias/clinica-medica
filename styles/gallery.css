@@ -31,9 +31,9 @@ hr {
     padding: 25px 0;
 }
 
-.galleryContent__images figure {
+/* .galleryContent__images figure {
     
-}
+} */
 
 .galleryContent__images #img_01 {
     grid-row: 1 / span 3;

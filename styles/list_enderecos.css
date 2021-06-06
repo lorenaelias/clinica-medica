@@ -81,3 +81,46 @@
 .listTable__item td {
     padding: 1.5rem 2rem;
 }
+
+
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+
+    .listEnderecos__aside__icons {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .listEnderecos__aside__icons a img {
+        width: 2.5rem;
+    }
+
+    .listEnderecos__container {
+        flex-direction: column;
+    }
+
+    .listEnderecos__aside {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .listEnderecos__icons {
+        flex-direction: revert;
+        justify-content: space-evenly;
+    }
+
+    .listEnderecos__icons a:last-child {
+        margin-top: 1.5rem;
+    }
+
+    .listEnderecos__content__header {
+        margin-top: 2rem;
+    }
+
+    .listEnderecos__content {
+        width: 100%;
+        height: auto;
+    }
+}

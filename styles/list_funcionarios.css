@@ -122,3 +122,46 @@
 .listTable__item td {
     padding: 1.5rem 2rem;
 }
+
+
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+
+    .listFuncionarios__aside__icons {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .listFuncionarios__aside__icons a img {
+        width: 2.5rem;
+    }
+
+    .listFuncionarios__container {
+        flex-direction: column;
+    }
+
+    .listFuncionarios__aside {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .listFuncionarios__icons {
+        flex-direction: revert;
+        justify-content: space-evenly;
+    }
+
+    .listFuncionarios__icons a:last-child {
+        margin-top: 1.5rem;
+    }
+
+    .listFuncionarios__content__header {
+        margin-top: 2rem;
+    }
+
+    .listFuncionarios__content {
+        width: 100%;
+        height: auto;
+    }
+}
